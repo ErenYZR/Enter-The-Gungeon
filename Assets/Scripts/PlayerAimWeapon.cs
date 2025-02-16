@@ -17,7 +17,12 @@ public class PlayerAimWeapon : MonoBehaviour
 	public Camera cam;
 	private Vector3 mousePos;
 	private Transform aimGunEndPositionTransform;
+
+	//bullet
 	[SerializeField] private GameObject bulletPrefab;
+	[Range(0.1f, 2f)]
+	[SerializeField] private float fireRate = 0.5f;
+	private float fireTimer;
 
 	private Animator aimAnimator;
 
@@ -46,7 +51,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
 	private void HandleShooting()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButton(0) && fireTimer <=0f)
 		{
 			aimAnimator.SetTrigger("Shoot");
 
@@ -56,6 +61,11 @@ public class PlayerAimWeapon : MonoBehaviour
 			});
 
 			Instantiate(bulletPrefab, aimGunEndPositionTransform.position, aimGunEndPositionTransform.rotation);
+			fireTimer = fireRate;
+		}
+		else
+		{
+			fireTimer -= Time.deltaTime;
 		}
 	}
 }
