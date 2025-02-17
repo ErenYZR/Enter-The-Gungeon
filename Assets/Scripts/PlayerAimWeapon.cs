@@ -44,7 +44,7 @@ public class PlayerAimWeapon : MonoBehaviour
 		mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 		mousePos.z = 0f;
 
-		Vector3 aimDirection = (mousePos - transform.position).normalized;
+		Vector3 aimDirection = (mousePos - aimGunEndPositionTransform.position).normalized;
 		float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 		aimTransform.eulerAngles = new Vector3(0, 0, angle);
 	}
