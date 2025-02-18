@@ -26,9 +26,13 @@ public class EnemySpawner : MonoBehaviour
 
 	private void Update()
 	{
-		distanceToPlayer = transform.position - GameObject.FindGameObjectWithTag("Player").transform.position;
+		if (GameObject.FindGameObjectWithTag("Player"))
+		{
+			distanceToPlayer = transform.position - GameObject.FindGameObjectWithTag("Player").transform.position;
+		}
 
-		if(distanceToPlayer.magnitude < detectionRadius)
+
+		if (distanceToPlayer.magnitude < detectionRadius)
 		{
 			canSpawn = true;
 			spriteRenderer.color = Color.black;
