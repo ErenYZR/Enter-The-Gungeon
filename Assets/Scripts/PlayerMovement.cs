@@ -25,34 +25,25 @@ public class PlayerMovement : MonoBehaviour
         DodgeRoll,
     }
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         state = State.Normal;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        print(moveInput.magnitude);
         switch (state)
         {
             case State.Normal:			
 				GetInput(); //Input alma kýsmý				
 				GetMouseInput();//mouse'un kameradaki konumunu alýp ona bakmasýný saðlayan kod
                 CheckDodgeRoll();
-                Stop();
                 break;
             case State.DodgeRoll:
                 DodgeRoll();
                 break;
 		}
-
-
 
     }
 
@@ -93,14 +84,6 @@ public class PlayerMovement : MonoBehaviour
         if(currentDodgeRollSpeed < 0.5f)
         {
             state = State.Normal;
-        }
-    }
-
-    private void Stop()
-    {
-        if(moveInput.magnitude == 0)
-        {
-            rb.velocity = Vector2.zero;
         }
     }
 }
