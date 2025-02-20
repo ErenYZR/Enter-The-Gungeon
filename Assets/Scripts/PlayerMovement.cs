@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float currentDodgeRollSpeed;
     [SerializeField] float dodgeRollTime = 2f;
 
-	private State state;
+	[SerializeField] private State state;
     private enum State
     {
         Normal,
@@ -37,17 +37,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        print(moveInput.magnitude);
         switch (state)
         {
             case State.Normal:			
 				GetInput(); //Input alma kýsmý				
 				GetMouseInput();//mouse'un kameradaki konumunu alýp ona bakmasýný saðlayan kod
                 CheckDodgeRoll();
+                Stop();
                 break;
             case State.DodgeRoll:
                 DodgeRoll();
                 break;
 		}
+
+
 
     }
 
@@ -88,6 +93,14 @@ public class PlayerMovement : MonoBehaviour
         if(currentDodgeRollSpeed < 0.5f)
         {
             state = State.Normal;
+        }
+    }
+
+    private void Stop()
+    {
+        if(moveInput.magnitude == 0)
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 }
