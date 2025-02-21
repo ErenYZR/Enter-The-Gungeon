@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	public void TakeDamage(int damage, Vector2 hitDirection)
+	public void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 
@@ -26,9 +26,6 @@ public class EnemyHealth : MonoBehaviour
 		{
 			Die();
 		}
-
-		//if (isKnockedBack) return;
-		//StartCoroutine(Knockback(hitDirection));
 	}
 
 	public void Heal(int healAmount)

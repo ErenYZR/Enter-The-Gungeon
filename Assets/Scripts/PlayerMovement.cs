@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] float originalDodgeRollSpeed = 5f;
     [SerializeField] float currentDodgeRollSpeed;
     [SerializeField] float dodgeRollTime = 2f;
+    [SerializeField] float dodgeRollCooldown = 0.2f;
+    private bool canDodgeRoll;
 
     private SpriteRenderer spriteRenderer;
 
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         state = State.Normal;
+        canDodgeRoll = true;
     }
 
     void Update()
@@ -74,13 +77,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckDodgeRoll()
     {
-        if (Input.GetMouseButtonDown(1) && moveInput != new Vector2(0, 0))
+        if (Input.GetMouseButtonDown(1) && moveInput != new Vector2(0, 0) && canDodgeRoll)
         {
             state = State.DodgeRoll;
             currentDodgeRollSpeed = originalDodgeRollSpeed;
         }
     }
 
+    private IEnumerator DodgeRollCoroutine()
+    {
+        canDodgeRoll = false;
+        yield return new WaitForSeconds(dodgeRollCooldown);
+        canDodgeRoll = true;
+    }
     private void DodgeRoll()
     {
 		rb.position += moveInput.normalized * currentDodgeRollSpeed * Time.deltaTime;
@@ -88,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         if(currentDodgeRollSpeed < 0.5f)
         {
             state = State.Normal;
+            StartCoroutine(DodgeRollCoroutine());
         }
     }
 }

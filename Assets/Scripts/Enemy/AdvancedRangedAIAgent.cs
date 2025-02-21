@@ -1,7 +1,7 @@
 using UnityEngine;
 using Pathfinding;
 
-public class RangedAIAgent : MonoBehaviour
+public class AdvancedRangedAIAgent : MonoBehaviour
 {
 	private AIPath path;
 	[SerializeField] private float moveSpeed;
@@ -16,7 +16,7 @@ public class RangedAIAgent : MonoBehaviour
 	[SerializeField] GameObject enemyBulletPrefab;
 	public LayerMask obstacles;
 	private EnemyHealth enemyHealth;
-	
+
 
 	private void Start()
 	{
@@ -34,7 +34,7 @@ public class RangedAIAgent : MonoBehaviour
 
 		}
 
-		if(path.remainingDistance >= distanceToStop)//düþmanýn oyuncuya yaklaþýnca durmasýný saðlayan kod
+		if (path.remainingDistance >= distanceToStop)//düþmanýn oyuncuya yaklaþýnca durmasýný saðlayan kod
 		{
 			path.maxSpeed = moveSpeed;
 		}
@@ -63,7 +63,7 @@ public class RangedAIAgent : MonoBehaviour
 
 	private void Shoot()
 	{
-		if(timeToFire <= 0f && canShoot())
+		if (timeToFire <= 0f && canShoot())
 		{
 			Instantiate(enemyBulletPrefab, firingPoint.position, transform.rotation);
 			timeToFire = fireRate;

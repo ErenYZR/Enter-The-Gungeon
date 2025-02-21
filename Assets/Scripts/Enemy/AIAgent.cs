@@ -6,12 +6,12 @@ public class AIAgent : MonoBehaviour
 	private AIPath path;
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private Transform target;
-	private Health health;
+	private EnemyHealth enemyHealth;
 
 	private void Start()
 	{
 		path = GetComponent<AIPath>();
-		health = GetComponent<Health>();
+		enemyHealth = GetComponent<EnemyHealth>();
 	}
 
 	private void Update()
@@ -21,11 +21,7 @@ public class AIAgent : MonoBehaviour
 			target = GameObject.FindGameObjectWithTag("Player").transform;
 			path.destination = target.position;
 		}
-
 		path.maxSpeed = moveSpeed;
-
-
-
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +33,7 @@ public class AIAgent : MonoBehaviour
 		}
 		else if (collision.gameObject.CompareTag("Bullet"))
 		{
-			health.TakeDamage(1);
+			enemyHealth.TakeDamage(1);
 			Destroy(collision.gameObject);
 		}
 	}
