@@ -6,10 +6,12 @@ public class AIAgent : MonoBehaviour
 	private AIPath path;
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private Transform target;
+	private Health health;
 
 	private void Start()
 	{
 		path = GetComponent<AIPath>();
+		health = GetComponent<Health>();
 	}
 
 	private void Update()
@@ -35,7 +37,7 @@ public class AIAgent : MonoBehaviour
 		}
 		else if (collision.gameObject.CompareTag("Bullet"))
 		{
-			Destroy(gameObject);
+			health.TakeDamage(1);
 			Destroy(collision.gameObject);
 		}
 	}

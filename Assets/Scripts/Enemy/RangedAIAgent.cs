@@ -15,11 +15,13 @@ public class RangedAIAgent : MonoBehaviour
 	private float timeToFire;
 	[SerializeField] GameObject enemyBulletPrefab;
 	public LayerMask obstacles;
+	private Health health;
 	
 
 	private void Start()
 	{
 		path = GetComponent<AIPath>();
+		health = GetComponent<Health>();
 	}
 
 	private void Update()
@@ -55,7 +57,7 @@ public class RangedAIAgent : MonoBehaviour
 		}
 		else if (collision.gameObject.CompareTag("Bullet"))
 		{
-			Destroy(gameObject);
+			health.TakeDamage(1);
 			Destroy(collision.gameObject);
 		}
 	}
@@ -64,7 +66,7 @@ public class RangedAIAgent : MonoBehaviour
 	{
 		if(timeToFire <= 0f && canShoot())
 		{
-			Instantiate(enemyBulletPrefab, transform.position, transform.rotation);
+			Instantiate(enemyBulletPrefab, firingPoint.position, transform.rotation);
 			timeToFire = fireRate;
 		}
 		else
