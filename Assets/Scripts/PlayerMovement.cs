@@ -18,8 +18,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float currentDodgeRollSpeed;
     [SerializeField] float dodgeRollTime = 2f;
 
-	[SerializeField] private State state;
-    private enum State
+    private SpriteRenderer spriteRenderer;
+
+	[SerializeField] public State state;
+    public enum State
     {
         Normal,
         DodgeRoll,
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         state = State.Normal;
     }
 
@@ -39,12 +42,13 @@ public class PlayerMovement : MonoBehaviour
 				GetInput(); //Input alma kýsmý				
 				GetMouseInput();//mouse'un kameradaki konumunu alýp ona bakmasýný saðlayan kod
                 CheckDodgeRoll();
+                spriteRenderer.color = Color.white;
                 break;
             case State.DodgeRoll:
                 DodgeRoll();
+                spriteRenderer.color = Color.black;
                 break;
 		}
-
     }
 
 	private void FixedUpdate()

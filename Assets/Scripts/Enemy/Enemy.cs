@@ -8,10 +8,12 @@ public class Enemy : MonoBehaviour
 	public float speed = 3f;
 	public Rigidbody2D rb;
 	public float rotateSpeed = 0.0025f;
+	EnemyHealth enemyHealth;
 
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		enemyHealth = GetComponent<EnemyHealth>();
 	}
 
 	private void FixedUpdate()

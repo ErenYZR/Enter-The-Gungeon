@@ -5,17 +5,20 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
-    private int currentHealth;
+    [SerializeField] private int currentHealth;
+    PlayerMovement playerMovement;
 
     void Start()
     {
         currentHealth = maxHealth;
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     public void TakeDamage(int damage)
     {
+        if(playerMovement.state != PlayerMovement.State.DodgeRoll)
         currentHealth -= damage;
-
+        
         if(currentHealth <= 0)
         {
             Die();

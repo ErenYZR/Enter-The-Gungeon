@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2688791719362820313}
   - component: {fileID: 7423267659914898712}
+  - component: {fileID: 2478713168280822371}
   - component: {fileID: 1107308554451582790}
   - component: {fileID: 7250841995099468061}
   - component: {fileID: 203224848306599171}
   - component: {fileID: 6435129100691460735}
-  - component: {fileID: -4780010191575774675}
+  - component: {fileID: 7740044055483488643}
   m_Layer: 0
   m_Name: Ranged AI
   m_TagString: Untagged
@@ -90,6 +91,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2478713168280822371
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484517444561079877}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!58 &1107308554451582790
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -119,7 +147,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -218,7 +246,7 @@ MonoBehaviour:
   obstacles:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &-4780010191575774675
+--- !u!114 &7740044055483488643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,10 +255,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 484517444561079877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05e776de2a867c246bd28bcdcde79040, type: 3}
+  m_Script: {fileID: 11500000, guid: fad1249d4f2f35949a41b5b24bef646c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 3
+  knockbackForce: 5
+  knockbackDuration: 0.2
 --- !u!1 &6696530167616214781
 GameObject:
   m_ObjectHideFlags: 0

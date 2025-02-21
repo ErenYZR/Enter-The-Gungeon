@@ -15,13 +15,13 @@ public class RangedAIAgent : MonoBehaviour
 	private float timeToFire;
 	[SerializeField] GameObject enemyBulletPrefab;
 	public LayerMask obstacles;
-	private Health health;
+	private EnemyHealth enemyHealth;
 	
 
 	private void Start()
 	{
 		path = GetComponent<AIPath>();
-		health = GetComponent<Health>();
+		enemyHealth = GetComponent<EnemyHealth>();
 	}
 
 	private void Update()
@@ -57,8 +57,11 @@ public class RangedAIAgent : MonoBehaviour
 		}
 		else if (collision.gameObject.CompareTag("Bullet"))
 		{
-			health.TakeDamage(1);
+			Vector2 knockbackDirection = collision.transform.position - transform.position;
+			print(knockbackDirection);
+			enemyHealth.TakeDamage(1,knockbackDirection);
 			Destroy(collision.gameObject);
+			print("A");
 		}
 	}
 
