@@ -32,6 +32,7 @@ public class AdvancedRangedAIAgent : MonoBehaviour
 			path.destination = target.position;
 			if (canShoot()) RotateTowardsTarget();
 
+
 		}
 
 		if (path.remainingDistance >= distanceToStop)//düþmanýn oyuncuya yaklaþýnca durmasýný saðlayan kod

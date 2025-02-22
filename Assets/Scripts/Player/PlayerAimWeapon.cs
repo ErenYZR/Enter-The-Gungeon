@@ -16,13 +16,14 @@ public class PlayerAimWeapon : MonoBehaviour
 	private Transform aimTransform;
 	public Camera cam;
 	private Vector3 mousePos;
-	private Transform aimGunEndPositionTransform;
+	public Transform aimGunEndPositionTransform;
+	private PlayerWeaponManager weaponManager;
 
 	//bullet
 	[SerializeField] private GameObject bulletPrefab;
 	[Range(0.1f, 2f)]
 	[SerializeField] private float fireRate = 0.5f;
-	private float fireTimer;
+	public float fireTimer;
 
 	private Animator aimAnimator;
 
@@ -31,11 +32,17 @@ public class PlayerAimWeapon : MonoBehaviour
 		aimTransform = transform.Find("Aim");
 		aimAnimator = aimTransform.GetComponent<Animator>();
 		aimGunEndPositionTransform = aimTransform.Find("GunEndPointPosition");
+		weaponManager = GetComponent<PlayerWeaponManager>();
 	}
 
 	private void Update()
 	{
 		HandleAiming();
+		if (Input.GetMouseButton(0))
+		{
+			weaponManager.Shoot();
+			print("Ateþ");
+		}
 		HandleShooting();
 	}
 
@@ -68,4 +75,6 @@ public class PlayerAimWeapon : MonoBehaviour
 			fireTimer -= Time.deltaTime;
 		}
 	}
+
+	
 }
