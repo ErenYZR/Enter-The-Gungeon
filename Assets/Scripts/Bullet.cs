@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	[Range(1, 10)]
-	[SerializeField] private float speed = 10f;
+	[SerializeField] public float speed = 10f;
 
-	[Range(1, 10)]
-	[SerializeField] private float lifetime = 3f;
+	[SerializeField] public float lifetime = 3f;
+
+	public int damage = 1;
 
 	private Rigidbody2D rb;
 
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		rb.velocity = transform.up * speed;
+		//rb.velocity = transform.up * speed;
 	}
 
 }

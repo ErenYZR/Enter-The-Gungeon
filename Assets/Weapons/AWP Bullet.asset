@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed886d6a192ad6a46a7eaf650afcac94, type: 3}
-  m_Name: AWP
+  m_Script: {fileID: 11500000, guid: f4467da496eb09646a0fd543b81e5353, type: 3}
+  m_Name: AWP Bullet
   m_EditorClassIdentifier: 
-  weaponName: AWP
-  damage: 10
-  fireRate: 3
-  bulletSpeed: 15
-  maxAmmo: 20
-  clipAmmo: 5
+  bulletName: AWP Bullet
+  damage: 0
+  bulletSpeed: 0

@@ -33,7 +33,8 @@ public class AIAgent : MonoBehaviour
 		}
 		else if (collision.gameObject.CompareTag("Bullet"))
 		{
-			enemyHealth.TakeDamage(1);
+			int damage = collision.GetComponent<Bullet>().damage;
+			enemyHealth.TakeDamage(damage);
 			Destroy(collision.gameObject);
 		}
 	}
