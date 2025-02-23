@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4467da496eb09646a0fd543b81e5353, type: 3}
-  m_Name: AWP Bullet
+  m_Script: {fileID: 11500000, guid: 14efe751f039c3547bf0fccb9707bfdf, type: 3}
+  m_Name: Test Item 1
   m_EditorClassIdentifier: 
-  bulletName: AWP Bullet
-  damage: 0
-  bulletSpeed: 0
+  ID: 0
+  DisplayName: Test Item 1
+  Description: 
+  Icon: {fileID: 0}
+  MaxStackSize: 1
