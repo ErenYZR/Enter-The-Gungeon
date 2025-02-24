@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6829dd6d239eb2f40ab4f63dcda9f2ba, type: 3}
   m_Name: BasicShotgun
   m_EditorClassIdentifier: 
-  weaponName: 
-  damage: 0
-  fireRate: 0
-  bulletSpeed: 0
-  maxAmmo: 0
-  clipAmmo: 0
-  pelletCount: 0
-  spreadAngle: 0
+  weaponName: Basic Shotgun
+  damage: 2
+  fireRate: 1
+  bulletSpeed: 6
+  maxAmmo: 20
+  clipAmmo: 5
+  pelletCount: 5
+  spreadAngle: 30
