@@ -21,8 +21,6 @@ public class PlayerAimWeapon : MonoBehaviour
 
 	//bullet
 	[SerializeField] private GameObject bulletPrefab;
-	[Range(0.1f, 2f)]
-	[SerializeField] private float fireRate = 0.5f;
 	public float fireTimer;
 
 	private Animator aimAnimator;
@@ -68,7 +66,6 @@ public class PlayerAimWeapon : MonoBehaviour
 			});
 
 			Instantiate(bulletPrefab, aimGunEndPositionTransform.position, aimGunEndPositionTransform.rotation);
-			fireTimer = fireRate;
 		}
 		else
 		{

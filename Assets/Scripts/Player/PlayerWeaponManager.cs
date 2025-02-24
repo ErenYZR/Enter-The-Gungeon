@@ -6,6 +6,7 @@ public class PlayerWeaponManager : MonoBehaviour
     private int currentWeaponIndex = 0;
     private Weapon currentWeapon;
     private PlayerAimWeapon playerAimWeapon;
+    [SerializeField] float weaponChangeCooldown;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,14 +32,15 @@ public class PlayerWeaponManager : MonoBehaviour
         }
         currentWeaponIndex = index;
         currentWeapon = weapons[currentWeaponIndex];
-        currentWeapon.gameObject.SetActive(true);    
-    }
+        currentWeapon.gameObject.SetActive(true);
+	}
 
     void SwapWeapon()
     {
         int nextWeaponIndex = (currentWeaponIndex + 1) % weapons.Length;
         EquipWeapon(nextWeaponIndex);
-    }
+		playerAimWeapon.fireTimer = weaponChangeCooldown;
+	}
 
     public void Shoot()
     {
