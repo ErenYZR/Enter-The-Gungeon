@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private bool canDodgeRoll;
 
     private SpriteRenderer spriteRenderer;
+    private PlayerController playerController;
+    private Health playerHealth;
 
 	[SerializeField] public State state;
     public enum State
@@ -35,9 +37,17 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         state = State.Normal;
         canDodgeRoll = true;
+        playerHealth = GetComponent<Health>();
+        playerHealth.OnTakeDamage += PlayerDamageActions;
+        
     }
 
-    void Update()
+	private void Awake()
+	{
+		playerController = new PlayerController();
+	}
+
+	void Update()
     {
         switch (state)
         {
@@ -45,11 +55,9 @@ public class PlayerMovement : MonoBehaviour
 				GetInput(); //Input alma kýsmý				
 				GetMouseInput();//mouse'un kameradaki konumunu alýp ona bakmasýný saðlayan kod
                 CheckDodgeRoll();
-                spriteRenderer.color = Color.white;
                 break;
             case State.DodgeRoll:
                 DodgeRoll();
-                spriteRenderer.color = Color.black;
                 break;
 		}
     }
@@ -62,8 +70,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetInput()//Input alma kýsmý
 	{
-		moveInput.x = Input.GetAxisRaw("Horizontal");
-		moveInput.y = Input.GetAxisRaw("Vertical");
+        /*moveInput.x = Input.GetAxisRaw("Horizontal");
+		moveInput.y = Input.GetAxisRaw("Vertical");*/
+
+        moveInput = playerController.Player.Move.ReadValue<Vector2>();
+
 	}
 
     private void GetMouseInput()//mouse'un kameradaki konumunu alýp ona bakmasýný saðlayan kod
@@ -86,12 +97,14 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DodgeRollCoroutine()
     {
-        canDodgeRoll = false;
+		spriteRenderer.color = Color.white;
+		canDodgeRoll = false;
         yield return new WaitForSeconds(dodgeRollCooldown);
         canDodgeRoll = true;
     }
     private void DodgeRoll()
     {
+		spriteRenderer.color = Color.black;
 		rb.position += moveInput.normalized * currentDodgeRollSpeed * Time.deltaTime;
 		currentDodgeRollSpeed -= (originalDodgeRollSpeed) / dodgeRollTime * Time.deltaTime;
         if(currentDodgeRollSpeed < 0.5f)
@@ -99,5 +112,27 @@ public class PlayerMovement : MonoBehaviour
             state = State.Normal;
             StartCoroutine(DodgeRollCoroutine());
         }
+    }
+
+	private void OnEnable()
+	{
+        playerController?.Enable();
+	}
+
+	private void OnDisable()
+	{
+        playerController?.Disable();
+	}
+
+    private void PlayerDamageActions(int damage)
+    {
+        StartCoroutine(TakingDamage());
+    }
+
+    private IEnumerator TakingDamage()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
     }
 }
