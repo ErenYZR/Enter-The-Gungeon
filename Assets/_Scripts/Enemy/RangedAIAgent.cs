@@ -85,9 +85,12 @@ public class RangedAIAgent : MonoBehaviour
 
 	private bool canShoot()
 	{
-		Vector2 A = target.position - transform.position;
-		RaycastHit2D raycastHit2D = Physics2D.Linecast(transform.position, target.position, obstacles);
-		if (raycastHit2D.collider == null && path.remainingDistance <= distanceToShoot) return true;
+		if (target != null)
+		{
+			RaycastHit2D raycastHit2D = Physics2D.Linecast(transform.position, target.position, obstacles);
+			if (raycastHit2D.collider == null && path.remainingDistance <= distanceToShoot) return true;
+			else return false;
+		}
 		else return false;
 	}
 
