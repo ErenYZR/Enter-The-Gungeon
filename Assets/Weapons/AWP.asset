@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: AWP
   damage: 10
-  fireRate: 3
+  fireRate: 2.5
   bulletSpeed: 15
   maxAmmo: 20
   clipAmmo: 5

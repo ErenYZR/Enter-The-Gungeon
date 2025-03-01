@@ -8,14 +8,15 @@ public class EnemyHealth : MonoBehaviour
 	private int currentHealth;
 	private Rigidbody2D rb;
 
-	[SerializeField] private float knockbackForce = 5f;
-	[SerializeField] private float knockbackDuration = 0.2f;
-	private bool isKnockedBack = false;
-
 	void Start()
 	{
 		currentHealth = maxHealth;
 		rb = GetComponent<Rigidbody2D>();
+	}
+
+	private void Update()
+	{
+		
 	}
 
 	public void TakeDamage(int damage)
@@ -43,14 +44,13 @@ public class EnemyHealth : MonoBehaviour
 		Destroy(gameObject);
 	}
 
-	private IEnumerator Knockback(Vector2 hitDirection)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		isKnockedBack = true;
-		rb.velocity = -hitDirection.normalized * knockbackForce;
-		print("B");
-		yield return new WaitForSeconds(knockbackDuration);
-		print("C");
-		rb.velocity = Vector2.zero;
-		isKnockedBack = false;
+		if (collision.gameObject.CompareTag("Bullet"))
+		{
+			int damage = collision.GetComponent<Bullet>().damage;
+			TakeDamage(damage);
+			Destroy(collision.gameObject);
+		}
 	}
 }

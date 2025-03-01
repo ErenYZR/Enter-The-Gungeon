@@ -54,11 +54,6 @@ public class RangedAIAgent : MonoBehaviour
 			Destroy(collision.gameObject);
 			target = null;
 		}
-		else if (collision.gameObject.CompareTag("Bullet"))
-		{
-			enemyHealth.TakeDamage(1);
-			Destroy(collision.gameObject);
-		}
 	}
 
 	private void Shoot()
