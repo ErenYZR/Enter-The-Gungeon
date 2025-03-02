@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 203224848306599171}
   - component: {fileID: 6435129100691460735}
   - component: {fileID: 7740044055483488643}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ranged AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,14 +238,14 @@ MonoBehaviour:
   moveSpeed: 3
   rotateSpeed: 0.05
   target: {fileID: 0}
-  distanceToShoot: 5
-  distanceToStop: 3
+  distanceToShoot: 8
+  distanceToStop: 5
   firingPoint: {fileID: 5536260791600141640}
   fireRate: 2
   enemyBulletPrefab: {fileID: 3114420573319742056, guid: 760ba4e31c65f1c4aaee77acd344cde5, type: 3}
   obstacles:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 64
 --- !u!114 &7740044055483488643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5536260791600141640}
   - component: {fileID: 2391004480043361102}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

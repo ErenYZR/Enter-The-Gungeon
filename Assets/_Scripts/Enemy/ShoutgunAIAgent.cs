@@ -1,7 +1,7 @@
 using UnityEngine;
 using Pathfinding;
 
-public class RangedAIAgent : MonoBehaviour
+public class ShotgunAIAgent : MonoBehaviour
 {
 	private AIPath path;
 	[SerializeField] private float moveSpeed;
@@ -12,11 +12,14 @@ public class RangedAIAgent : MonoBehaviour
 
 	[SerializeField] private Transform firingPoint;
 	[SerializeField] private float fireRate;
-	private float timeToFire;
+	[SerializeField] private float timeToFire;
 	[SerializeField] GameObject enemyBulletPrefab;
 	public LayerMask obstacles;
 	private EnemyHealth enemyHealth;
-	
+
+	[SerializeField] private int pelletCount;
+	[SerializeField] private float spreadAngle;
+
 
 	private void Start()
 	{
@@ -33,7 +36,7 @@ public class RangedAIAgent : MonoBehaviour
 			if (canShoot()) RotateTowardsTarget();
 		}
 
-		if(path.remainingDistance >= distanceToStop)//düþmanýn oyuncuya yaklaþýnca durmasýný saðlayan kod
+		if (path.remainingDistance >= distanceToStop)//düþmanýn oyuncuya yaklaþýnca durmasýný saðlayan kod
 		{
 			path.maxSpeed = moveSpeed;
 		}
@@ -43,6 +46,7 @@ public class RangedAIAgent : MonoBehaviour
 		}
 
 		Shoot();
+		if (canShoot()) print("Ateþ et be");
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -56,9 +60,14 @@ public class RangedAIAgent : MonoBehaviour
 
 	private void Shoot()
 	{
-		if(timeToFire <= 0f && canShoot())
+		if (timeToFire <= 0f && canShoot())
 		{
-			Instantiate(enemyBulletPrefab, firingPoint.position, transform.rotation);
+			for (int i = 0; i < pelletCount; i++)
+			{
+				float spread = Random.Range(-spreadAngle / 2, spreadAngle / 2);
+				Quaternion bulletRotation = Quaternion.Euler(0, 0, firingPoint.rotation.eulerAngles.z + spread);
+				Instantiate(enemyBulletPrefab, firingPoint.position, bulletRotation);
+			}
 			timeToFire = fireRate;
 		}
 		else

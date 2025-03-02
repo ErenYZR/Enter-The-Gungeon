@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 1107308554451582790}
   - component: {fileID: 7250841995099468061}
   - component: {fileID: 203224848306599171}
-  - component: {fileID: 6435129100691460735}
+  - component: {fileID: 2623910377301188492}
   - component: {fileID: 7740044055483488643}
-  m_Layer: 0
-  m_Name: Ranged AI 1
+  m_Layer: 7
+  m_Name: Ranged AI Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.23002982, g: 0.10715558, b: 0.5283019, a: 1}
+  m_Color: {r: 0.5377358, g: 0.24730176, b: 0.07863118, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 1
---- !u!114 &6435129100691460735
+--- !u!114 &2623910377301188492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 484517444561079877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb4502561332ac4fbf2f74d58050e4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d00af5c7b2c6574898ab6f2e8b24e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
@@ -241,11 +241,14 @@ MonoBehaviour:
   distanceToShoot: 5
   distanceToStop: 3
   firingPoint: {fileID: 5536260791600141640}
-  fireRate: 2
+  fireRate: 3
+  timeToFire: 0
   enemyBulletPrefab: {fileID: 3114420573319742056, guid: 760ba4e31c65f1c4aaee77acd344cde5, type: 3}
   obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  pelletCount: 5
+  spreadAngle: 40
 --- !u!114 &7740044055483488643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +262,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  knockbackForce: 5
-  knockbackDuration: 0.2
 --- !u!1 &6696530167616214781
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5536260791600141640}
   - component: {fileID: 2391004480043361102}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
