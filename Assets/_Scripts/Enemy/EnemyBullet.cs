@@ -10,6 +10,8 @@ public class EnemyBullet : MonoBehaviour
 	[Range(1, 10)]
 	[SerializeField] private float lifetime = 3f;
 
+	public int damage = 1; 
+
 	private Rigidbody2D rb;
 
 
@@ -28,7 +30,7 @@ public class EnemyBullet : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			collision.GetComponent<Health>().TakeDamage(1);
+			collision.GetComponent<Health>().TakeDamage(damage);
 			Destroy(gameObject);
 		}
 	}

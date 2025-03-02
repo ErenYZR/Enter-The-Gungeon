@@ -31,11 +31,21 @@ public abstract class InventoryDisplay : MonoBehaviour
 
 	public void SlotClicked(InventorySlot_UI clickedUISlot)
 	{
+		bool isShiftPressed = Keyboard.current.shiftKey.isPressed;
 		if(clickedUISlot.AssignedInventorySlot.ItemData != null && mouseInventoryItem.AssignedInventorySlot.ItemData == null)//slotta item varsa mouseda item yoksa slottan eþya çek
 		{
-			mouseInventoryItem.UpdateMouseSlot(clickedUISlot.AssignedInventorySlot);
-			clickedUISlot.ClearSlot();
-			return;
+			if (isShiftPressed && clickedUISlot.AssignedInventorySlot.SplitStack(out InventorySlot halfStackSlot))//bölüþtür
+			{
+				mouseInventoryItem.UpdateMouseSlot(halfStackSlot);
+				clickedUISlot.UpdateUISlot();
+				return;
+			}
+			else
+			{
+				mouseInventoryItem.UpdateMouseSlot(clickedUISlot.AssignedInventorySlot);
+				clickedUISlot.ClearSlot();
+				return;
+			}
 		}
 
 		if(clickedUISlot.AssignedInventorySlot.ItemData == null && mouseInventoryItem.AssignedInventorySlot.ItemData != null)//mouseta item varsa slotta item yoksa mouseden slota item koy
@@ -44,6 +54,7 @@ public abstract class InventoryDisplay : MonoBehaviour
 			clickedUISlot.UpdateUISlot();
 
 			mouseInventoryItem.ClearSlot();
+			return;
 		}
 
 
@@ -52,14 +63,15 @@ public abstract class InventoryDisplay : MonoBehaviour
 		{
 			bool isSameItem = clickedUISlot.AssignedInventorySlot.ItemData == mouseInventoryItem.AssignedInventorySlot.ItemData;
 
-			if ( isSameItem && clickedUISlot.AssignedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize))//ayný itemler varsa ve toplamlarý kapasiteyi aþmýyorsa birleþtir
+			if ( isSameItem && clickedUISlot.AssignedInventorySlot.EnoughRoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize))//ayný itemler varsa ve toplamlarý kapasiteyi aþmýyorsa birleþtir
 			{
 				clickedUISlot.AssignedInventorySlot.AssignItem(mouseInventoryItem.AssignedInventorySlot);
 				clickedUISlot.UpdateUISlot();
 
 				mouseInventoryItem.ClearSlot();
+				return;
 			}
-			else if (isSameItem && !clickedUISlot.AssignedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize, out int leftInStack))
+			else if (isSameItem && !clickedUISlot.AssignedInventorySlot.EnoughRoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize, out int leftInStack))
 			{
 				if (leftInStack < 1) SwapSlots(clickedUISlot);//slot doluysa deðiþtir
 				else
@@ -71,11 +83,13 @@ public abstract class InventoryDisplay : MonoBehaviour
 					var newItem = new InventorySlot(mouseInventoryItem.AssignedInventorySlot.ItemData, remainingOnMouse);
 					mouseInventoryItem.ClearSlot();
 					mouseInventoryItem.UpdateMouseSlot(newItem);
+					return;
 				}
 			}
 			else if(!isSameItem)//farklý itemler varsa deðiþtir
 			{
 				SwapSlots(clickedUISlot);
+				return;
 			}
 		}
 	}

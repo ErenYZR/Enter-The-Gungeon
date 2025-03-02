@@ -1,5 +1,11 @@
 using UnityEngine;
 
+/// <summary>
+/// This is a scriptable object, that defines what an item is in our game.
+/// </summary>
+
+
+
 [CreateAssetMenu(menuName ="Inventory System/ Inventory Item")]
 public class InventoryItemData : ScriptableObject
 {
@@ -11,3 +17,4 @@ public class InventoryItemData : ScriptableObject
 	public int MaxStackSize;
 
 }
+

@@ -31,7 +31,6 @@ public class RangedAIAgent : MonoBehaviour
 			target = GameObject.FindGameObjectWithTag("Player").transform;
 			path.destination = target.position;
 			if (canShoot()) RotateTowardsTarget();
-
 		}
 
 		if(path.remainingDistance >= distanceToStop)//düþmanýn oyuncuya yaklaþýnca durmasýný saðlayan kod
@@ -44,6 +43,10 @@ public class RangedAIAgent : MonoBehaviour
 		}
 
 		Shoot();
+
+
+		RaycastHit2D Hit = Physics2D.Linecast(transform.position, target.position, obstacles);
+		print(Hit.collider.name + gameObject.name);
 
 	}
 
@@ -82,12 +85,10 @@ public class RangedAIAgent : MonoBehaviour
 	{
 		if (target != null)
 		{
-			RaycastHit2D raycastHit2D = Physics2D.Linecast(transform.position, target.position, obstacles);
-			if (raycastHit2D.collider == null && path.remainingDistance <= distanceToShoot) return true;
+			RaycastHit2D Hit = Physics2D.Linecast(transform.position, target.position, obstacles);
+			if (Hit.collider == null && path.remainingDistance <= distanceToShoot) return true;
 			else return false;
 		}
 		else return false;
 	}
-
-
 }

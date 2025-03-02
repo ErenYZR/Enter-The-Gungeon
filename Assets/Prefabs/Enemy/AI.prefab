@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   target: {fileID: 0}
+  contactDamage: 2
 --- !u!58 &6472926491078475058
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -249,5 +250,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  knockbackForce: 5
-  knockbackDuration: 0.2

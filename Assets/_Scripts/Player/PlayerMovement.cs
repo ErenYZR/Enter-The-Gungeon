@@ -70,11 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetInput()//Input alma kýsmý
 	{
-        /*moveInput.x = Input.GetAxisRaw("Horizontal");
-		moveInput.y = Input.GetAxisRaw("Vertical");*/
-
         moveInput = playerController.Player.Move.ReadValue<Vector2>();
-
 	}
 
     private void GetMouseInput()//mouse'un kameradaki konumunu alýp ona bakmasýný saðlayan kod

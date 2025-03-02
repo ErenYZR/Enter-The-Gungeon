@@ -7,6 +7,7 @@ public class AIAgent : MonoBehaviour
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private Transform target;
 	private EnemyHealth enemyHealth;
+	public int contactDamage = 2;
 
 	private void Start()
 	{
@@ -28,7 +29,7 @@ public class AIAgent : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			Destroy(collision.gameObject);
+			collision.GetComponent<Health>().TakeDamage(contactDamage);
 			target = null;
 		}
 	}
