@@ -38,7 +38,8 @@ public class ShotgunAIAgent : MonoBehaviour
 
 		if (path.remainingDistance >= distanceToStop)//düþmanýn oyuncuya yaklaþýnca durmasýný saðlayan kod
 		{
-			path.maxSpeed = moveSpeed;
+
+			path.maxSpeed = 4;
 		}
 		else
 		{

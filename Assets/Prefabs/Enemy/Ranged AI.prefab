@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 7423267659914898712}
   - component: {fileID: 2478713168280822371}
   - component: {fileID: 1107308554451582790}
+  - component: {fileID: 7217158571150149942}
   - component: {fileID: 7250841995099468061}
   - component: {fileID: 203224848306599171}
-  - component: {fileID: 6435129100691460735}
   - component: {fileID: 7740044055483488643}
+  - component: {fileID: 7466311341562706276}
   m_Layer: 7
   m_Name: Ranged AI
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +154,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!58 &7217158571150149942
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484517444561079877}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6
 --- !u!114 &7250841995099468061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,29 +259,6 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 1
---- !u!114 &6435129100691460735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484517444561079877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb4502561332ac4fbf2f74d58050e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  rotateSpeed: 0.05
-  target: {fileID: 0}
-  distanceToShoot: 8
-  distanceToStop: 5
-  firingPoint: {fileID: 5536260791600141640}
-  fireRate: 2
-  enemyBulletPrefab: {fileID: 3114420573319742056, guid: 760ba4e31c65f1c4aaee77acd344cde5, type: 3}
-  obstacles:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &7740044055483488643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +272,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+--- !u!114 &7466311341562706276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484517444561079877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d5a264df46b8545a60bcebcccf6e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  rotateSpeed: 0.1
+  contactDamage: 1
+  distanceToShoot: 6
+  distanceToStop: 3
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 64
+  enemyBulletPrefab: {fileID: 3114420573319742056, guid: 760ba4e31c65f1c4aaee77acd344cde5, type: 3}
+  firingPoint: {fileID: 5536260791600141640}
+  fireRate: 1
 --- !u!1 &6696530167616214781
 GameObject:
   m_ObjectHideFlags: 0

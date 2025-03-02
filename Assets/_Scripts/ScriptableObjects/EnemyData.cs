@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public abstract class EnemyData : ScriptableObject
+[CreateAssetMenu(fileName = "NewEnemy", menuName = "Enemies/Enemy Data")]
+public class EnemyData : ScriptableObject
 {
 	public string enemyName;
-	public int maxHealth;
 	public float moveSpeed;
-	public int damage;
 }

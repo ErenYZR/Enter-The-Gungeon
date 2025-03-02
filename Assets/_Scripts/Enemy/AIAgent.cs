@@ -1,13 +1,14 @@
 using UnityEngine;
 using Pathfinding;
+using System.IO;
 
 public class AIAgent : MonoBehaviour
 {
 	private AIPath path;
-	[SerializeField] private float moveSpeed;
 	[SerializeField] private Transform target;
 	private EnemyHealth enemyHealth;
 	public int contactDamage = 2;
+
 
 	private void Start()
 	{
@@ -22,10 +23,10 @@ public class AIAgent : MonoBehaviour
 			target = GameObject.FindGameObjectWithTag("Player").transform;
 			path.destination = target.position;
 		}
-		path.maxSpeed = moveSpeed;
+		path.maxSpeed = 4;
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerStay2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
