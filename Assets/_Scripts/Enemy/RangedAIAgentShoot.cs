@@ -8,7 +8,9 @@ public class RangedAIAgentShoot : EnemyShooterBase
 	{
 		if (timeToFire <= 0f && canShoot())
 		{
-			Instantiate(enemyBulletPrefab, firingPoint.position, transform.rotation);
+			GameObject bullet = Instantiate(enemyBulletPrefab, firingPoint.position, transform.rotation);
+			EnemyBullet enemyBullet = bullet.GetComponent<EnemyBullet>();
+			enemyBullet.SetDamage(bulletDamage);
 			timeToFire = fireRate;
 		}
 		else

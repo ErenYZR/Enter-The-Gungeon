@@ -258,6 +258,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   enemyBulletPrefab: {fileID: 3114420573319742056, guid: 760ba4e31c65f1c4aaee77acd344cde5, type: 3}
+  bulletDamage: 1
   firingPoint: {fileID: 5536260791600141640}
   fireRate: 3
   pelletCount: 5

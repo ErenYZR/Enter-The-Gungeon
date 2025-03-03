@@ -10,7 +10,7 @@ public class EnemyBullet : MonoBehaviour
 	[Range(1, 10)]
 	[SerializeField] private float lifetime = 3f;
 
-	public int damage = 1; 
+	private int damage = 1; 
 
 	private Rigidbody2D rb;
 
@@ -24,6 +24,11 @@ public class EnemyBullet : MonoBehaviour
 	private void FixedUpdate()
 	{
 		rb.velocity = transform.up * speed;
+	}
+
+	public void SetDamage(int newDamage)
+	{
+		damage = newDamage;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

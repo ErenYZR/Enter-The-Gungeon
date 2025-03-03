@@ -15,7 +15,9 @@ public class ShotgunAIAgentShoot : EnemyShooterBase
 			{
 				float spread = Random.Range(-spreadAngle / 2, spreadAngle / 2);
 				Quaternion bulletRotation = Quaternion.Euler(0, 0, firingPoint.rotation.eulerAngles.z + spread);
-				Instantiate(enemyBulletPrefab, firingPoint.position, bulletRotation);
+				GameObject bullet = Instantiate(enemyBulletPrefab, firingPoint.position, bulletRotation);
+				EnemyBullet enemyBullet = bullet.GetComponent<EnemyBullet>();
+				enemyBullet.SetDamage(bulletDamage);
 			}
 			timeToFire = fireRate;
 		}
