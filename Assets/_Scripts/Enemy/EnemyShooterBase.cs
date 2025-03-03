@@ -4,6 +4,7 @@ public abstract class EnemyShooterBase : EnemyBase
 {
 	[SerializeField] protected GameObject enemyBulletPrefab;
 	[SerializeField] protected int bulletDamage;
+	[SerializeField] protected float bulletSpeed;
 	[SerializeField] protected Transform firingPoint;
 	[SerializeField] protected float fireRate;
 	protected float timeToFire;

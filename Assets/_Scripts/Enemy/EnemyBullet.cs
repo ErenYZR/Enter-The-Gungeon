@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-	[Range(1, 10)]
 	[SerializeField] private float speed = 10f;
 
 	[Range(1, 10)]
@@ -29,6 +28,11 @@ public class EnemyBullet : MonoBehaviour
 	public void SetDamage(int newDamage)
 	{
 		damage = newDamage;
+	}
+
+	public void SetSpeed(float newSpeed)
+	{
+		speed = newSpeed;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

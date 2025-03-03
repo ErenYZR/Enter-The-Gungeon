@@ -18,6 +18,7 @@ public class ShotgunAIAgentShoot : EnemyShooterBase
 				GameObject bullet = Instantiate(enemyBulletPrefab, firingPoint.position, bulletRotation);
 				EnemyBullet enemyBullet = bullet.GetComponent<EnemyBullet>();
 				enemyBullet.SetDamage(bulletDamage);
+				enemyBullet.SetSpeed(bulletSpeed);
 			}
 			timeToFire = fireRate;
 		}

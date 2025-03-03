@@ -11,6 +11,7 @@ public class RangedAIAgentShoot : EnemyShooterBase
 			GameObject bullet = Instantiate(enemyBulletPrefab, firingPoint.position, transform.rotation);
 			EnemyBullet enemyBullet = bullet.GetComponent<EnemyBullet>();
 			enemyBullet.SetDamage(bulletDamage);
+			enemyBullet.SetSpeed(bulletSpeed);
 			timeToFire = fireRate;
 		}
 		else
