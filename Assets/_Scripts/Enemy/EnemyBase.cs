@@ -74,4 +74,9 @@ public abstract class EnemyBase : MonoBehaviour
 		}
 		else return false;
 	}
+
+	public void SetSpeedProduct(float speed)
+	{
+		moveSpeed *= speed;
+	}
 }
