@@ -17,4 +17,8 @@ MonoBehaviour:
   fireRate: 0.8
   bulletSpeed: 4
   maxAmmo: 120
-  clipAmmo: 20
+  currentAmmo: 20
+  clipAmmo: 3
+  currentClipAmmo: 3
+  reloadTime: 0
+  isReloading: 0

@@ -65,13 +65,13 @@ public class PlayerAimWeapon : MonoBehaviour
 				shootPosition = mousePos,
 			});
 
-			Instantiate(bulletPrefab, aimGunEndPositionTransform.position, aimGunEndPositionTransform.rotation);
+			//Instantiate(bulletPrefab, aimGunEndPositionTransform.position, aimGunEndPositionTransform.rotation);
 		}
 		else
 		{
 			fireTimer -= Time.deltaTime;
 		}
 	}
-
 	
+
 }
