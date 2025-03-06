@@ -8,22 +8,29 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+    [SerializeField] private int currentAmmo;
+	[SerializeField] private int currentClipAmmo;
+	[SerializeField] private bool isReloading;
+
 
 	private void Start()
 	{
-        weaponData.currentAmmo = weaponData.maxAmmo;
-        weaponData.currentClipAmmo = weaponData.clipAmmo;
+        currentAmmo = weaponData.maxAmmo;
+        currentClipAmmo = weaponData.clipAmmo;
 	}
 	public virtual void Fire()
     {
-			GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-			bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * weaponData.bulletSpeed;
-            bullet.GetComponent<Bullet>().damage = weaponData.damage;
+        if (isReloading || currentClipAmmo <= 0) return;
+
+		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+		bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * weaponData.bulletSpeed;
+        bullet.GetComponent<Bullet>().damage = weaponData.damage;
+        currentClipAmmo -= 1;
     }
 
     public virtual void Reload()
     {
-        if(!weaponData.isReloading && weaponData.currentAmmo > 0 && weaponData.currentClipAmmo < weaponData.clipAmmo)
+        if(!isReloading && currentAmmo > 0 && currentClipAmmo < weaponData.clipAmmo)
         {
             StartCoroutine(ReloadCoroutine());
             print("Weapon.Reload çalýþýyor");
@@ -32,25 +39,29 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator ReloadCoroutine()
     {
-		weaponData.isReloading = true;
+		isReloading = true;
 		yield return new WaitForSeconds(weaponData.reloadTime);
 
-		int ammoNeeded = weaponData.clipAmmo - weaponData.currentClipAmmo;
-		if (weaponData.currentAmmo >= ammoNeeded)
+		int ammoNeeded = weaponData.clipAmmo - currentClipAmmo;
+		if (currentAmmo >= ammoNeeded)
         {
-            weaponData.currentAmmo -= ammoNeeded;
-            weaponData.currentClipAmmo = weaponData.clipAmmo;
+            currentAmmo -= ammoNeeded;
+            currentClipAmmo = weaponData.clipAmmo;
         }
         else
         {
-            weaponData.currentAmmo -= ammoNeeded;
-            weaponData.currentClipAmmo += weaponData.currentAmmo;
-        }
-        weaponData.isReloading = false;
+            currentClipAmmo += currentAmmo;
+			currentAmmo = 0;
+		}
+        isReloading = false;
     }
 
 	public bool CanReload()
 	{
-		return !weaponData.isReloading && weaponData.currentAmmo > 0 && weaponData.currentClipAmmo < weaponData.clipAmmo;
+		return !isReloading && currentAmmo > 0 && currentClipAmmo < weaponData.clipAmmo;
 	}
+
+    public int GetCurrentAmmo() => currentAmmo;
+    public int GetCurrentClipAmmo() => currentClipAmmo;
+    public bool IsReloading() => isReloading;
 }

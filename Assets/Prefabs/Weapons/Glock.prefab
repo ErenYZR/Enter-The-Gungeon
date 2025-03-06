@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6248872972687710553
 Transform:
   m_ObjectHideFlags: 0
@@ -101,6 +101,9 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: fcb2cd73f1d5ab24683b734fbb641a68, type: 2}
   firePoint: {fileID: 0}
   bulletPrefab: {fileID: 3114420573319742056, guid: 3b8d371ddbf47a74098a0a5cb841f514, type: 3}
+  currentAmmo: 20
+  currentClipAmmo: 0
+  isReloading: 0
 --- !u!1 &5036114933794112963
 GameObject:
   m_ObjectHideFlags: 0

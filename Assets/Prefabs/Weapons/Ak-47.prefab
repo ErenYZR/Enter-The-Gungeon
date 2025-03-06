@@ -132,3 +132,6 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 5d99c7ef59753d145ac047511a75af3f, type: 2}
   firePoint: {fileID: 0}
   bulletPrefab: {fileID: 3114420573319742056, guid: 3b8d371ddbf47a74098a0a5cb841f514, type: 3}
+  currentAmmo: 0
+  currentClipAmmo: 0
+  isReloading: 0

@@ -8,9 +8,6 @@ public class WeaponData : ScriptableObject
 	public float fireRate;
 	public float bulletSpeed;
 	public int maxAmmo;
-	public int currentAmmo;
 	public int clipAmmo;
-	public int currentClipAmmo;
 	public int reloadTime;
-	public bool isReloading;
 }
