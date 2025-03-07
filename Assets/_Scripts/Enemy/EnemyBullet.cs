@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-	[SerializeField] private float speed = 10f;
+	[SerializeField] protected float speed = 10f;
 
 	[Range(1, 10)]
 	[SerializeField] private float lifetime = 3f;
 
 	private int damage = 1; 
 
-	private Rigidbody2D rb;
+	protected Rigidbody2D rb;
 
 
-	private void Start()
+	public virtual void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		Destroy(gameObject,lifetime);
 	}
 
-	private void FixedUpdate()
+	public virtual void FixedUpdate()
 	{
 		rb.velocity = transform.up * speed;
 	}
