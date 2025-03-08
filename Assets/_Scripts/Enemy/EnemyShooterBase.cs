@@ -11,7 +11,7 @@ public abstract class EnemyShooterBase : EnemyBase
 
 	protected override void Attack()
 	{
-		if (timeToFire <= 0f && target != null)
+		if (timeToFire <= 0f && target != null && canShoot())
 		{
 			Shoot();
 			timeToFire = fireRate;

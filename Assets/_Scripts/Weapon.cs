@@ -56,10 +56,21 @@ public class Weapon : MonoBehaviour
         isReloading = false;
     }
 
+    public virtual void RefillCurrentWeaponAmmo()
+    {
+        currentAmmo = weaponData.maxAmmo;
+        currentClipAmmo = weaponData.clipAmmo;
+    }
+
 	public bool CanReload()
 	{
 		return !isReloading && currentAmmo > 0 && currentClipAmmo < weaponData.clipAmmo;
 	}
+
+    public bool GunIsFull()
+    {
+        return currentAmmo == weaponData.maxAmmo;
+    }
 
     public int GetCurrentAmmo() => currentAmmo;
     public int GetCurrentClipAmmo() => currentClipAmmo;

@@ -371,8 +371,8 @@ MonoBehaviour:
   moveSpeed: 6
   rotateSpeed: 0.1
   contactDamage: 1
-  distanceToShoot: 8
-  distanceToStop: 5
+  distanceToShoot: 13
+  distanceToStop: 10
   obstacles:
     serializedVersion: 2
     m_Bits: 64

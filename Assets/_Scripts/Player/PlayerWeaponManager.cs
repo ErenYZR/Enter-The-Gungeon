@@ -80,22 +80,23 @@ public class PlayerWeaponManager : MonoBehaviour
 		print("Reload baþladý...");
 		yield return new WaitForSeconds(currentWeapon.weaponData.reloadTime);
 
-		/*int ammoNeeded = currentWeapon.weaponData.clipAmmo - currentWeapon.weaponData.currentClipAmmo;
-
-		if (currentWeapon.weaponData.currentAmmo >= ammoNeeded)
-		{
-			currentWeapon.weaponData.currentAmmo -= ammoNeeded;
-			currentWeapon.weaponData.currentClipAmmo = currentWeapon.weaponData.clipAmmo;
-		}
-		else
-		{
-			currentWeapon.weaponData.currentClipAmmo += currentWeapon.weaponData.currentAmmo;
-			currentWeapon.weaponData.currentAmmo = 0;
-		}
-
-		currentWeapon.weaponData.isReloading = false;*/
 		reloadCoroutine = null;
 		print("Reload bitti!");
 	}
+
+    public void RefillCurrentWeaponAmmo()
+    {
+        currentWeapon.RefillCurrentWeaponAmmo();
+    }
+
+    public void GetCurrentAmmo()
+    {
+        currentWeapon.GetCurrentAmmo();
+    }
+
+    public bool GunIsFull()
+    {
+        return currentWeapon.GunIsFull();
+    }
 
 }
