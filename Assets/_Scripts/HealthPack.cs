@@ -6,8 +6,8 @@ public class HealthPack : MonoBehaviour, IObtainable
 
 	public void Obtain(GameObject player)
 	{
-		Health health = player.GetComponent<Health>();//can doluyken alamasýn
-		if (health != null)
+		Health health = player.GetComponent<Health>();
+		if (health != null && !health.IsFullHealth())
 		{
 			health.Heal(healthAmount);
 			Destroy(gameObject);

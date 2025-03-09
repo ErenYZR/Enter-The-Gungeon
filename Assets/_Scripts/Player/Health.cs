@@ -59,4 +59,10 @@ public class Health : MonoBehaviour
         invincible = false;
         Debug.Log("Hasar alýnýr");
     }
+
+    public bool IsFullHealth()
+    {
+        return currentHealth == maxHealth;
+    }
+
 }
