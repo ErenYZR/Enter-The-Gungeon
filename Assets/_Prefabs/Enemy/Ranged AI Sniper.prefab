@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 203224848306599171}
   - component: {fileID: 7740044055483488643}
   - component: {fileID: 7466311341562706276}
+  - component: {fileID: 4983380656708806492}
   m_Layer: 7
-  m_Name: Ranged AI
+  m_Name: Ranged AI Sniper
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.23002982, g: 0.10715558, b: 0.5283019, a: 1}
+  m_Color: {r: 0.06770565, g: 0.06443574, b: 0.0754717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -287,16 +288,34 @@ MonoBehaviour:
   moveSpeed: 3
   rotateSpeed: 0.1
   contactDamage: 1
-  distanceToShoot: 11
-  distanceToStop: 8
+  distanceToShoot: 20
+  distanceToStop: 14
   obstacles:
     serializedVersion: 2
     m_Bits: 64
+  roomController: {fileID: 0}
   enemyBulletPrefab: {fileID: 3114420573319742056, guid: 760ba4e31c65f1c4aaee77acd344cde5, type: 3}
-  bulletDamage: 1
-  bulletSpeed: 4
+  bulletDamage: 2
+  bulletSpeed: 15
   firingPoint: {fileID: 5536260791600141640}
   fireRate: 1.5
+--- !u!114 &4983380656708806492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484517444561079877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715dd801f4a609441b0d5c53f384d134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - itemPrefab: {fileID: 9025583705939569539, guid: eda727b6a42510a45bffaeabf49df8cf, type: 3}
+    dropChance: 0.1
+  - itemPrefab: {fileID: 1933401118885396185, guid: a09b08b53ac2ddc42a4eb77b11a6314b, type: 3}
+    dropChance: 0.1
 --- !u!1 &6696530167616214781
 GameObject:
   m_ObjectHideFlags: 0

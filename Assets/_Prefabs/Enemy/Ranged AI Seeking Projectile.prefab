@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 6186884562170253437}
   - component: {fileID: 5475076181536849925}
   - component: {fileID: 5911308225803014087}
+  - component: {fileID: -8381162152050268799}
   m_Layer: 7
   m_Name: Ranged AI Seeking Projectile
   m_TagString: Enemy
@@ -376,8 +377,26 @@ MonoBehaviour:
   obstacles:
     serializedVersion: 2
     m_Bits: 64
+  roomController: {fileID: 0}
   enemyBulletPrefab: {fileID: 3114420573319742056, guid: 8989a4afe52477f47bf53c9e62d86300, type: 3}
   bulletDamage: 1
   bulletSpeed: 5
   firingPoint: {fileID: 5125920551737436609}
   fireRate: 2
+--- !u!114 &-8381162152050268799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237515691751372937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715dd801f4a609441b0d5c53f384d134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems:
+  - itemPrefab: {fileID: 9025583705939569539, guid: eda727b6a42510a45bffaeabf49df8cf, type: 3}
+    dropChance: 0.1
+  - itemPrefab: {fileID: 1933401118885396185, guid: a09b08b53ac2ddc42a4eb77b11a6314b, type: 3}
+    dropChance: 0.1

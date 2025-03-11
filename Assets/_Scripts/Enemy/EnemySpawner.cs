@@ -1,6 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+public class EnemySpawner : MonoBehaviour
+{
+	[SerializeField] private GameObject[] enemyPrefabs; // Spawn edilecek düþmanlar
+	[SerializeField] private RoomController roomController;
+
+	private void Start()
+	{
+		roomController = GetComponentInParent<RoomController>(); // Odanýn RoomController'ýný al
+	}
+
+	public void SpawnEnemy()
+	{
+		if (enemyPrefabs.Length == 0) return;
+
+		GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+		GameObject spawnedEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+
+		EnemyBase enemy = spawnedEnemy.GetComponent<EnemyBase>();
+		if (enemy != null)
+		{
+			enemy.SetRoomController(roomController);
+		}
+	}
+}
+
+/*
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class EnemySpawner : MonoBehaviour
@@ -60,4 +90,4 @@ public class EnemySpawner : MonoBehaviour
 			}
 		}
 	}
-}
+}*/

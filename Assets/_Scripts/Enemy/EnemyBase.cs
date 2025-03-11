@@ -11,6 +11,7 @@ public abstract class EnemyBase : MonoBehaviour
 	[SerializeField] private float distanceToShoot = 6f;
 	[SerializeField] private float distanceToStop = 3f;
 	[SerializeField] private LayerMask obstacles;
+	public RoomController roomController;
 
 	protected virtual void Awake()
 	{
@@ -78,5 +79,10 @@ public abstract class EnemyBase : MonoBehaviour
 	public void SetSpeedProduct(float speed)
 	{
 		moveSpeed *= speed;
+	}
+
+	public void SetRoomController(RoomController controller)
+	{
+		roomController = controller;
 	}
 }

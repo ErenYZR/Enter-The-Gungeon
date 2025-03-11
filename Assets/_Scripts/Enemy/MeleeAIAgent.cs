@@ -6,6 +6,6 @@ public class MeleeAIAgent : EnemyBase
 {
 	protected override void Attack()
 	{
-		throw new System.NotImplementedException();
+
 	}
 }

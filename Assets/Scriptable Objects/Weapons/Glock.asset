@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponName: Glock
   damage: 1
   fireRate: 0.8
-  bulletSpeed: 4
+  bulletSpeed: 6
   maxAmmo: 120
   clipAmmo: 10
   reloadTime: 2

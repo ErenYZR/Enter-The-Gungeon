@@ -7,11 +7,13 @@ public class EnemyHealth : MonoBehaviour
 	[SerializeField] private int maxHealth = 3;
 	private int currentHealth;
 	private Rigidbody2D rb;
+	private EnemyBase enemyBase;
 
 	void Start()
 	{
 		currentHealth = maxHealth;
 		rb = GetComponent<Rigidbody2D>();
+		enemyBase = GetComponent<EnemyBase>();
 	}
 
 	private void Update()
@@ -41,7 +43,9 @@ public class EnemyHealth : MonoBehaviour
 
 	private void Die()
 	{
-		Destroy(gameObject);
+		GetComponent<EnemyDropSystem>()?.TryDropItem();
+		enemyBase?.roomController?.EnemyDefeated();
+		Destroy(gameObject);		
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
