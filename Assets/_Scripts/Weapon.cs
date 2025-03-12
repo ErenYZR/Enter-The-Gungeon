@@ -22,9 +22,13 @@ public class Weapon : MonoBehaviour
     {
         if (isReloading || currentClipAmmo <= 0) return;
 
-		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-		bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * weaponData.bulletSpeed;
-        bullet.GetComponent<Bullet>().damage = weaponData.damage;
+		float spread = Random.Range(-weaponData.spreadAngle / 2, weaponData.spreadAngle / 2);
+		Quaternion bulletRotation = Quaternion.Euler(0, 0, firePoint.rotation.eulerAngles.z + spread);
+
+		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
+        //bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * weaponData.bulletSpeed;
+        bullet.GetComponent<Bullet>().speed = weaponData.bulletSpeed;
+		bullet.GetComponent<Bullet>().damage = weaponData.damage;
         currentClipAmmo -= 1;
     }
 

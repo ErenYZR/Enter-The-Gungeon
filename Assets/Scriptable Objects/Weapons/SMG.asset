@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed886d6a192ad6a46a7eaf650afcac94, type: 3}
-  m_Name: AWP
+  m_Name: SMG
   m_EditorClassIdentifier: 
-  weaponName: AWP
-  damage: 10
-  fireRate: 2.5
-  bulletSpeed: 30
-  maxAmmo: 20
-  clipAmmo: 5
-  reloadTime: 3
-  spreadAngle: 0
+  weaponName: SMG
+  damage: 1
+  fireRate: 0.05
+  bulletSpeed: 7
+  maxAmmo: 120
+  clipAmmo: 30
+  reloadTime: 1
+  spreadAngle: 40

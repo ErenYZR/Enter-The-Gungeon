@@ -18,5 +18,7 @@ MonoBehaviour:
   bulletSpeed: 6
   maxAmmo: 20
   clipAmmo: 5
-  pelletCount: 5
+  reloadTime: 2
   spreadAngle: 30
+  pelletCount: 5
+  shotgunSpreadAngle: 0

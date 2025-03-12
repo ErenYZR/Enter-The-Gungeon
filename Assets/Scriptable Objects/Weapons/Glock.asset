@@ -18,4 +18,5 @@ MonoBehaviour:
   bulletSpeed: 6
   maxAmmo: 120
   clipAmmo: 10
-  reloadTime: 2
+  reloadTime: 1.5
+  spreadAngle: 10

@@ -4,5 +4,5 @@ using UnityEngine;
 public class ShotgunData : WeaponData
 {
 	public int pelletCount; // Kaç mermi saçýlýyor?
-	public float spreadAngle; // Saçýlma açýsý
+	public float shotgunSpreadAngle; // Saçýlma açýsý
 }
