@@ -4,4 +4,5 @@ using UnityEngine;
 public class ChargeWeaponData : WeaponData
 {
 	public float chargeTime;
+	public Animation animation;
 }

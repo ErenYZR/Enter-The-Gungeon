@@ -16,6 +16,7 @@ public class PlayerAimWeapon : MonoBehaviour
 	private Transform aimTransform;
 	public Camera cam;
 	private Vector3 mousePos;
+	public SpriteRenderer aimSprite;
 	public Transform aimGunEndPositionTransform;
 	private PlayerWeaponManager weaponManager;
 

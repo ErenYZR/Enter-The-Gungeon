@@ -4,6 +4,8 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
 	public string weaponName;
+	public Sprite inventoryIcon;
+	public Sprite inGameIcon;
 	public int damage;
 	public float fireRate;
 	public float bulletSpeed;

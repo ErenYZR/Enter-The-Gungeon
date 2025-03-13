@@ -12,8 +12,8 @@ public class PlayerWeaponManager : MonoBehaviour
 
     void Start()
     {
-        EquipWeapon(0);
-        playerAimWeapon = GetComponent<PlayerAimWeapon>();
+		playerAimWeapon = GetComponent<PlayerAimWeapon>();
+		EquipWeapon(0);
     }
 
     void Update()
@@ -44,7 +44,9 @@ public class PlayerWeaponManager : MonoBehaviour
         }
         currentWeaponIndex = index;
         currentWeapon = weapons[currentWeaponIndex];
-        currentWeapon.gameObject.SetActive(true);
+		playerAimWeapon.aimSprite.sprite = currentWeapon.weaponData.inventoryIcon;
+        print("Ü");
+		currentWeapon.gameObject.SetActive(true);
 	}
 
     void SwapWeapon()

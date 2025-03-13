@@ -23,6 +23,8 @@ public abstract class EnemyBase : MonoBehaviour
 	{
 		path = GetComponent<AIPath>();
 		target = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+		//if(roomController != null) roomController
 	}
 
 	protected virtual void Update()

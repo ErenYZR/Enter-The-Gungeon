@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ChargeWeapon
   m_EditorClassIdentifier: 
   weaponName: 
+  inventoryIcon: {fileID: -1084673227, guid: 4e1de03d871fe4147a6175c1d3dd1077, type: 3}
+  inGameIcon: {fileID: -1084673227, guid: 4e1de03d871fe4147a6175c1d3dd1077, type: 3}
   damage: 10
   fireRate: 1
   bulletSpeed: 20
@@ -21,3 +23,4 @@ MonoBehaviour:
   reloadTime: 1
   spreadAngle: 0
   chargeTime: 2
+  animation: {fileID: 0}
