@@ -10,7 +10,6 @@ public class ChargeWeapons : Weapon
 
 	private void Update()
 	{
-		print(chargeTimer + "charge timer");
 		if (Input.GetMouseButtonDown(0)) // Sol týk basýldý
 		{
 			isCharging = true;
@@ -26,6 +25,7 @@ public class ChargeWeapons : Weapon
 				if (chargeTimer >= chargeWeaponData.chargeTime)
 				{
 					canShoot = true; // Þarj tamamlandý, ateþ edebilir
+					print("Þarj oldu");
 				}
 			}
 		}

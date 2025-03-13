@@ -56,7 +56,7 @@ public class RoomController : MonoBehaviour
 
 	public void EnemyDefeated()
 	{
-		enemiesAlive--;
+		enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
 
 		if (enemiesAlive <= 0)
 		{

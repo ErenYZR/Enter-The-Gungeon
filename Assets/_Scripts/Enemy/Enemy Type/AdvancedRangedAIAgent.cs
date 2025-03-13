@@ -57,7 +57,7 @@ public class AdvancedRangedAIAgent : MonoBehaviour
 		}
 		else if (collision.gameObject.CompareTag("Bullet"))
 		{
-			enemyHealth.TakeDamage(1);
+			//enemyHealth.TakeDamage(1);
 			Destroy(collision.gameObject);
 		}
 	}

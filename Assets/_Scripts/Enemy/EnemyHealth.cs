@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 	[SerializeField] private int maxHealth = 3;
 	private int currentHealth;
 	private Rigidbody2D rb;
+	private bool isDead = false;
 	private EnemyBase enemyBase;
 
 	void Start()
@@ -23,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
+		if (isDead) return;//ölünce tekrar çaðýrmasýn diye
 		currentHealth -= damage;
 
 		if (currentHealth <= 0)
@@ -43,8 +45,11 @@ public class EnemyHealth : MonoBehaviour
 
 	private void Die()
 	{
+		if (isDead) return;
+		isDead = true;
 		GetComponent<EnemyDropSystem>()?.TryDropItem();
 		enemyBase?.roomController?.EnemyDefeated();
+		print("Öldü" + gameObject.name);
 		Destroy(gameObject);		
 	}
 
