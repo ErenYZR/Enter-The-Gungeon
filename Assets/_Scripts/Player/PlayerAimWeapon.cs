@@ -64,8 +64,6 @@ public class PlayerAimWeapon : MonoBehaviour
 				gunEndPosition = aimGunEndPositionTransform.position,
 				shootPosition = mousePos,
 			});
-
-			//Instantiate(bulletPrefab, aimGunEndPositionTransform.position, aimGunEndPositionTransform.rotation);
 		}
 		else
 		{
