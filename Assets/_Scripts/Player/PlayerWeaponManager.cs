@@ -38,15 +38,13 @@ public class PlayerWeaponManager : MonoBehaviour
             if(reloadCoroutine != null)
             {
                 StopCoroutine(reloadCoroutine);
-                //currentWeapon.weaponData.isReloading = false; gpt kaldýrttý
                 reloadCoroutine = null;
             }
         }
         currentWeaponIndex = index;
         currentWeapon = weapons[currentWeaponIndex];
-		playerAimWeapon.aimSprite.sprite = currentWeapon.weaponData.inventoryIcon;
-        print("Ü");
 		currentWeapon.gameObject.SetActive(true);
+		currentWeapon.spriteRenderer.sprite = currentWeapon.weaponData.inGameIcon;
 	}
 
     void SwapWeapon()

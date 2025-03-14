@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6248872972687710553}
   - component: {fileID: 4214223867761218100}
   - component: {fileID: -9205288846371881534}
+  - component: {fileID: 7797944932297712666}
+  - component: {fileID: 9193577147839998380}
   m_Layer: 0
   m_Name: Charge Gun
   m_TagString: Untagged
@@ -80,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.03125, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -101,10 +103,47 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 2899089284b047843a9bcb60b77ec687, type: 2}
   firePoint: {fileID: 3483157873188126101}
   bulletPrefab: {fileID: 3114420573319742056, guid: 3b8d371ddbf47a74098a0a5cb841f514, type: 3}
+  spriteRenderer: {fileID: 0}
   currentAmmo: 0
   currentClipAmmo: 0
   isReloading: 0
   chargeWeaponData: {fileID: 11400000, guid: 2899089284b047843a9bcb60b77ec687, type: 2}
+--- !u!95 &7797944932297712666
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784507875484863110}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d6e79e823d2be54ba834fc63106a4dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!111 &9193577147839998380
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784507875484863110}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5036114933794112963
 GameObject:
   m_ObjectHideFlags: 0

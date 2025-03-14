@@ -7,9 +7,23 @@ public class ChargeWeapons : Weapon
 	private float chargeTimer = 0f;
 	private bool isCharging = false;
 	private bool canShoot = false;
+	[SerializeField] private Animator animator;
+
+	private void Awake()
+	{
+		animator = GetComponent<Animator>();
+
+		if(chargeWeaponData.animatiorController != null)
+		{
+			animator.runtimeAnimatorController = chargeWeaponData.animatiorController;
+		}
+	}
 
 	private void Update()
 	{
+		animator.SetBool("Charging", isCharging);
+		animator.SetBool("Charged", canShoot);
+
 		if (Input.GetMouseButtonDown(0)) // Sol týk basýldý
 		{
 			isCharging = true;
@@ -62,6 +76,7 @@ public class ChargeWeapons : Weapon
 				bullet.GetComponent<Bullet>().speed = weaponData.bulletSpeed;
 				bullet.GetComponent<Bullet>().damage = weaponData.damage;
 				//timeToFire = weaponData.fireRate;
+				animator.SetTrigger("Relased");
 			}
 
 			isCharging = false;

@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     public WeaponData weaponData;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public SpriteRenderer spriteRenderer;
 
     [SerializeField] private int currentAmmo;
 	[SerializeField] private int currentClipAmmo;
@@ -17,6 +18,10 @@ public class Weapon : MonoBehaviour
 	{
         currentAmmo = weaponData.maxAmmo;
         currentClipAmmo = weaponData.clipAmmo;
+	}
+	private void OnEnable()
+	{
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 	public virtual void Fire()
     {
