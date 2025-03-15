@@ -20,10 +20,10 @@ public class ItemPickUp : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		var inventory = collision.transform.GetComponent<InventoryHolder>();
+		var inventory = collision.transform.GetComponent<PlayerInventoryHolder>();
 		if (!inventory) return;
 
-		if (inventory.InventorySystem.AddToInventory(ItemData, 1))
+		if (inventory.AddToInventory(ItemData, 1))
 		{
 			Destroy(this.gameObject);
 		}
