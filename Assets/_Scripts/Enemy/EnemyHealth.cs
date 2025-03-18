@@ -9,12 +9,18 @@ public class EnemyHealth : MonoBehaviour
 	private Rigidbody2D rb;
 	private bool isDead = false;
 	private EnemyBase enemyBase;
+	private bool invincible = false;
+	private float invincibilityDuration = 0.4f;
+	private SpriteRenderer spriteRenderer;
+	public Color currentColor;
 
 	void Start()
 	{
 		currentHealth = maxHealth;
 		rb = GetComponent<Rigidbody2D>();
 		enemyBase = GetComponent<EnemyBase>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		currentColor = spriteRenderer.color;
 	}
 
 	private void Update()
@@ -30,6 +36,10 @@ public class EnemyHealth : MonoBehaviour
 		if (currentHealth <= 0)
 		{
 			Die();
+		}
+		else
+		{
+			StartCoroutine(InvincibilityCoroutine());
 		}
 	}
 
@@ -50,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
 		GetComponent<EnemyDropSystem>()?.TryDropItem();
 		enemyBase?.roomController?.EnemyDefeated();
 		print("Öldü" + gameObject.name);
-		Destroy(gameObject);		
+		Destroy(gameObject);	
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -61,5 +71,16 @@ public class EnemyHealth : MonoBehaviour
 			TakeDamage(damage);
 			Destroy(collision.gameObject);
 		}
+	}
+
+	private IEnumerator InvincibilityCoroutine()
+	{
+		invincible = true;
+		currentColor.a = 0.5f;
+		spriteRenderer.color = currentColor;
+		yield return new WaitForSeconds(invincibilityDuration);
+		invincible = false;
+		currentColor.a = 1f;
+		spriteRenderer.color = currentColor;
 	}
 }
