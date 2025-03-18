@@ -9,8 +9,8 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public SpriteRenderer spriteRenderer;
 
-    [SerializeField] private int currentAmmo;
-	[SerializeField] private int currentClipAmmo;
+    [SerializeField] protected int currentAmmo;
+	[SerializeField] protected int currentClipAmmo;
 	[SerializeField] private bool isReloading;
 
 

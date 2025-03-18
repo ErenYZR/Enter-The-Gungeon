@@ -14,5 +14,6 @@ public class Shotgun : Weapon
 			GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
 			bullet.GetComponent<Rigidbody2D>().velocity = bulletRotation * Vector2.up * weaponData.bulletSpeed;
 		}
+		currentClipAmmo -= 1;
 	}
 }

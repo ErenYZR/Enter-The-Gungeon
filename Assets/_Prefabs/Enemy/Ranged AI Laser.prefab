@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7740044055483488643}
   - component: {fileID: 7466311341562706276}
   - component: {fileID: 4397785730160681854}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Ranged AI Laser
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5536260791600141640}
   - component: {fileID: 2391004480043361102}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

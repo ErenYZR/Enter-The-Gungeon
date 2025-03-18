@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8678406505958846104}
   - component: {fileID: 9151602751746993530}
   - component: {fileID: -1243379594735619343}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Ranged AI OldMan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1657085464835866603}
   - component: {fileID: 8903039139699998477}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
