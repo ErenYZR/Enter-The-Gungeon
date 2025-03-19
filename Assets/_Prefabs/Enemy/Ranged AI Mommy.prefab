@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1208368745152482285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +317,10 @@ MonoBehaviour:
   - itemPrefab: {fileID: 9025583705939569539, guid: eda727b6a42510a45bffaeabf49df8cf, type: 3}
     dropChance: 0.1
   - itemPrefab: {fileID: 1933401118885396185, guid: a09b08b53ac2ddc42a4eb77b11a6314b, type: 3}
+    dropChance: 0.1
+  - itemPrefab: {fileID: 5292812291909969819, guid: a386264b0d4531749a20366c2f8a8492, type: 3}
+    dropChance: 0.1
+  - itemPrefab: {fileID: 9221813153919744272, guid: a58066feb8bd08e478fb2da2d6ca9891, type: 3}
     dropChance: 0.1
 --- !u!1 &6696530167616214781
 GameObject:
