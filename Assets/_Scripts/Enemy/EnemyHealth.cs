@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 	[SerializeField] private int maxHealth = 3;
-	private int currentHealth;
+	[SerializeField] private int currentHealth;
 	private Rigidbody2D rb;
 	private bool isDead = false;
 	private EnemyBase enemyBase;
 	private bool invincible = false;
-	private float invincibilityDuration = 0.4f;
+	private float invincibilityDuration = 0.05f;
 	private SpriteRenderer spriteRenderer;
 	public Color currentColor;
 
@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
-		if (isDead) return;//ölünce tekrar çaðýrmasýn diye
+		if (isDead /*|| invincible*/) return;//ölünce tekrar çaðýrmasýn diye
 		currentHealth -= damage;
 
 		if (currentHealth <= 0)
