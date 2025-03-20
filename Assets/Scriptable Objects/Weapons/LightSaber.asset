@@ -22,5 +22,5 @@ MonoBehaviour:
   clipAmmo: 1
   reloadTime: 0
   spreadAngle: 0
-  durability: 10
+  durability: 100
   animatiorController: {fileID: 0}

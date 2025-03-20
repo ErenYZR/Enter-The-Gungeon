@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class MeeleWeapon : Weapon
 {
-    public MeeleWeaponData meeleWeaponData;
+	public MeeleWeaponData meeleWeaponData;
 	[SerializeField] private Animator animator;
 
+	[SerializeField] protected int currentDurability;
 	public Transform circleOrigin;
 	public float radius;
-	public bool isAttacking = false;
 
+	private HashSet<EnemyHealth> hitEnemies = new HashSet<EnemyHealth>(); // Hasar alan düþmanlar
+	private bool isAttacking = false;
 
 	private void Awake()
 	{
 		animator = GetComponent<Animator>();
+		currentDurability = meeleWeaponData.durability;
 
-		if(meeleWeaponData.animatiorController != null)
+		if (meeleWeaponData.animatiorController != null)
 		{
 			animator.runtimeAnimatorController = meeleWeaponData.animatiorController;
 		}
@@ -26,6 +29,10 @@ public class MeeleWeapon : Weapon
 	{
 		isAttacking = true;
 		animator.SetTrigger("Attack");
+		currentDurability--;
+
+		// Saldýrý süresi boyunca çarpýþma tespiti yap
+		StartCoroutine(AttackCoroutine());
 	}
 
 	private void Update()
@@ -45,22 +52,26 @@ public class MeeleWeapon : Weapon
 
 	public void DetectColliders()
 	{
-		StartCoroutine(AttackCoroutine());
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(circleOrigin.position, radius);
 
-		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(circleOrigin.position, radius);
-		foreach (Collider2D enemy in hitEnemies)
+		foreach (Collider2D collider in colliders)
 		{
-			enemy.GetComponent<EnemyHealth>()?.TakeDamage(10);
-			print(hitEnemies[0].gameObject.name);
+			if (collider.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth))
+			{
+				if (!hitEnemies.Contains(enemyHealth)) // Eðer düþman daha önce vurulmadýysa
+				{
+					hitEnemies.Add(enemyHealth);
+					enemyHealth.TakeDamage(meeleWeaponData.damage); // Hasarý anýnda ver
+					Debug.Log(enemyHealth.gameObject.name + " anýnda hasar aldý!");
+				}
+			}
 		}
-
 	}
 
-
-	public IEnumerator AttackCoroutine()
+	private IEnumerator AttackCoroutine()
 	{
-			yield return new WaitForSeconds(0.4f);
-			isAttacking = false;
-
+		yield return new WaitForSeconds(0.4f); // Saldýrý animasyonu süresi kadar bekle
+		hitEnemies.Clear(); // HashSet'i temizle
+		isAttacking = false;
 	}
 }
