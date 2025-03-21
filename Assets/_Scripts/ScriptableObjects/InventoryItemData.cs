@@ -15,6 +15,14 @@ public class InventoryItemData : ScriptableObject
 	public string Description;
 	public Sprite Icon;
 	public int MaxStackSize;
+	public enum ItemType
+	{
+		Gun,
+		Item,
+		Collectable
+	}
+
+	public ItemType itemType;
 
 }
 

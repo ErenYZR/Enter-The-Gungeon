@@ -129,8 +129,9 @@ MonoBehaviour:
   isReloading: 0
   meeleWeaponData: {fileID: 11400000, guid: 05fddd2953754e741b4eb5879baa5628, type: 2}
   animator: {fileID: 0}
-  circleOrigin: {fileID: 0}
-  radius: 1
+  currentDurability: 0
+  circleOrigin: {fileID: 418030349210885476}
+  radius: 0.5
 --- !u!1 &6186988977164008028
 GameObject:
   m_ObjectHideFlags: 0

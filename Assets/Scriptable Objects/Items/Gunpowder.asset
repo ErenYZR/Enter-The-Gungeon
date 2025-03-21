@@ -19,3 +19,4 @@ MonoBehaviour:
 '
   Icon: {fileID: 21300000, guid: cc50d6b2def39ed47aca82bebe963a83, type: 3}
   MaxStackSize: 10
+  itemType: 2
