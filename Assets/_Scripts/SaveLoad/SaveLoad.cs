@@ -45,6 +45,7 @@ public static class SaveLoad
 			data = JsonUtility.FromJson<SaveData>(json);
 
 			OnLoadGame?.Invoke(data);
+			Debug.Log(json);
 		}
 		else
 		{

@@ -6,32 +6,32 @@ using UnityEngine.InputSystem;
 
 public class PlayerInventoryHolder : InventoryHolder
 {
-    [SerializeField] protected int secondaryInventorySize;
-    [SerializeField] protected InventorySystem secondaryInventorySystem;
+	public static UnityAction OnPlayerInventoryChanged;
 
-    public InventorySystem SecondaryInventorySystem => secondaryInventorySystem;
-
-	public static UnityAction<InventorySystem> OnPlayerBackpackDisplayRequested;
-
-	protected override void Awake()
+	public static UnityAction<InventorySystem, int> OnPlayerInventoryDisplayRequested;
+	private void Start()
 	{
-		base.Awake();
+		SaveGameManager.data.playerInventory = new InventorySaveData(primaryInventorySystem);
+	}
 
-        secondaryInventorySystem = new InventorySystem(secondaryInventorySize);
+	protected override void LoadInventory(SaveData data)
+	{
+		//check the save data for this spesific
+		if (data.playerInventory.InvSystem != null)
+		{
+			this.primaryInventorySystem = data.playerInventory.InvSystem;
+            OnPlayerInventoryChanged?.Invoke();
+		}
 	}
 
 	void Update()
     {
-        if (Keyboard.current.bKey.wasPressedThisFrame) OnPlayerBackpackDisplayRequested?.Invoke(secondaryInventorySystem);
+		if (Keyboard.current.bKey.wasPressedThisFrame) OnPlayerInventoryDisplayRequested?.Invoke(primaryInventorySystem, offset);
     }
 
     public bool AddToInventory(InventoryItemData data, int amount)
     {
         if (primaryInventorySystem.AddToInventory(data, amount))
-        {
-            return true;
-        }
-        else if (secondaryInventorySystem.AddToInventory(data, amount))
         {
             return true;
         }
