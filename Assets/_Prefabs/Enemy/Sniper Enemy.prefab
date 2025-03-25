@@ -514,7 +514,7 @@ MonoBehaviour:
   firingPoint: {fileID: 260797775257506942}
   fireRate: 1.75
   laserLine: {fileID: 8630732896117914641}
-  laserLength: 10
+  laserLength: 20
   aimDuration: 0.5
   lazerLayerMask:
     serializedVersion: 2

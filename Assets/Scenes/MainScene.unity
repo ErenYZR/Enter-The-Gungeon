@@ -22117,6 +22117,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64206342009ae948acc2f5feba1911b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1649226604
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 80.18473
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.822219
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708494962010231152, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7751172077683385513, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
+      propertyPath: m_Name
+      value: Sniper Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cf1d6b229b32a464eb2d01edc425bcca, type: 3}
 --- !u!1 &1654256995
 GameObject:
   m_ObjectHideFlags: 0
@@ -24294,7 +24351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAQIezhG6MvYwIAABgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GdgKMe2uBkB5ImNBMLr4IaY01yJJHkvlIhv/elWxjl05PiN23q/fervxFhLIVMKfN0gi+0hzI9xHxZ/Jt1Cef4UR3Wm3EJ3SYD8Fd4UE0YN6oExrjsS+zugRnBPuhdtKDIwzWSuTalAu+g5m2zmI4p9ICpox2vlph6GtETvhzl/qSM56SqT994imNRhc8MlAOTA8dR/fjFhsnLbRB1opJWlbAPe2+IB53vccNTqGiFuLZMy2lsC0d4s5VkLupCjDg9XJBUV2gEN2nGChA7ArnuQ6rX/PcgmvFG3qeC4M2NW3JT914V1K7b5gdqKz9RZPHwKnpufonfReHdG50+dxdG0f+ClcItn+jZ0atG3g7DM975nHw50jlnm4lfBSgXvTS6FpxTDpT+9LaQjLv/16VzQpg+z7eUL0J1lVveGd3N0iv4RLEn2ZSlNtg5GMT2Egd/A7zB4OT+YWEw3bYtgVGPYt3C7/pbrhGbeJJGOsw1apUnt5W18ZDySJ45tXUbqaNAjPsUIGi0p3X2MfdjvAm9/+qJ+pfTHt7m+sewk1JCPf4KLpJrfXxOi1b6OMKbPFaOykU9Fb7xAsaNdNKNRs2lNSVbWqTUzYo29WC/71bZDIdb9N8nCbTh/iBcrhjafqwTSdJQtOUTQFIWD6hUCeV64Zoaw+OTfXNFS5a9yEZLQ2twrZzQ49L8Vlq2yOFyvWGGQD12nS4EgeDl+Cz5Asu0KANOCdUGDj5yojUbA88uzbKgtLFyRma9V0yUomDdj6SkVn4cmTEh6/LvDZwEHD0l3fNLuTyB1BLAwQUAAAICAAAECHsbFeCWW0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kpm5aZJlmqmlkbmxoXFiSqpusqWlcZKlmZFRoqVlsnlqqlIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAECHs4RujL2MCAAAYBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAECHsbFeCWW0AAAB4AAAACQAkAAAAAAAAAAAAAACwAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGgDAAAAAA==
+    dataString: UEsDBBQAAAgIAAAQIeyhzpkVZAIAABoFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GmADj3lqHkB4SmNBMLr4IaY01yJJHksNHhv/elWxjl05PLG8/9N7Tyl9EKFsBc9osjeAvmgP5PiI+Jt9GffIZjnSn1Uacoav5ENwVvoiGmjfqhEZ87NusLsEZwX6onfTFEYK1Erk25YLvINXWWYRzKi1gymjnuxVCXyNyxJ+7xLecMIrnPjpjlESjC4YMlAPTl06j+2lbO45D6Iub2loxScsKuCfet8RRN302DXUKNbUlnj/TUgrbEiLuVAXBm6oAA14xFxT1BRLRfYJAAWJXOD952L3KcwuulW/o6VEYNKoZS37qxr2S2n3D7JPK2h80ewicmpkv/6TvxiGdG10+d8eOgyBXCLZ/oydGrRu4O4Qfe+bj4M+Byj3dSvgoQL3qpdG14ph0pvattYX4sf97VZYWwPY93lC9AeuqN7yzu7tKr+ESxB9TKcptMPKhATZSB7/DBoDBm/mFhMN+2HYEop7Fu4XfdDdcpDbxJIx1mGpVKk9vq2vjS8kieObV1C7VRoEZTqhAUelOa5zjbq/wJvf/rifq30x7epvrnsJNS4D7+ii6Sa314XpbttCHF7DFqnZSKOit9olXNCrVSjUbNpTUtW1qk1M2aNvVgv+9W2Q2n26TfJrE88l4QjncsSSZbJNZHNMkYXMAEpZPKNRJ5boh2tqD16b64QoXrfuUjJaGVmHbuaGHpTiX2vaVQuV6wwyAWjUTrsTB4CH4LPmCCzRoA84JFS6cfGVEarYHnl0HZUHp4ugMzfopGanEp3YeyUgavh0Z8fB1mdcGPgUc/OHdsAu5/AFQSwMEFAAACAgAABAh7GxXglltAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKZuWmSZZqppZG5saFxYkqqbrKlpXGSpZmRUaKlZbJ5aqpSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABAh7KHOmRVkAgAAGgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABAh7GxXglltAAAAeAAAAAkAJAAAAAAAAAAAAAAAsQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABpAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -27560,3 +27617,4 @@ SceneRoots:
   - {fileID: 1276851217}
   - {fileID: 614479182}
   - {fileID: 744292383}
+  - {fileID: 1649226604}
