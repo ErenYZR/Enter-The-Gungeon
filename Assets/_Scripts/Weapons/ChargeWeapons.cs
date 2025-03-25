@@ -77,6 +77,7 @@ public class ChargeWeapons : Weapon
 				bullet.GetComponent<Bullet>().damage = weaponData.damage;
 				//timeToFire = weaponData.fireRate;
 				animator.SetTrigger("Relased");
+				currentClipAmmo--;
 			}
 
 			isCharging = false;

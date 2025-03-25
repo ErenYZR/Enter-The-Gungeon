@@ -13,9 +13,13 @@ public abstract class EnemyBase : MonoBehaviour
 	[SerializeField] private LayerMask obstacles;
 	public RoomController roomController;
 
+	[SerializeField] protected SpriteRenderer spriteRenderer;
+	[SerializeField] protected Color originalColor;
+
 	protected virtual void Awake()
 	{
-
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		originalColor = spriteRenderer.color;
 	}
 
 
@@ -23,8 +27,6 @@ public abstract class EnemyBase : MonoBehaviour
 	{
 		path = GetComponent<AIPath>();
 		target = GameObject.FindGameObjectWithTag("Player")?.transform;
-
-		//if(roomController != null) roomController
 	}
 
 	protected virtual void Update()

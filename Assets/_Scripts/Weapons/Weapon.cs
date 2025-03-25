@@ -84,4 +84,5 @@ public class Weapon : MonoBehaviour
     public int GetCurrentAmmo() => currentAmmo;
     public int GetCurrentClipAmmo() => currentClipAmmo;
     public bool IsReloading() => isReloading;
+    //public int GetCurrentWeaponIndex() => 
 }

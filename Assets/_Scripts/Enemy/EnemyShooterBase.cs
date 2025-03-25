@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class EnemyShooterBase : EnemyBase
@@ -13,8 +14,8 @@ public abstract class EnemyShooterBase : EnemyBase
 	{
 		if (timeToFire <= 0f && target != null && canShoot())
 		{
-			Shoot();
-			timeToFire = fireRate;
+			print("B");
+			//StartCoroutine(Wait());
 		}
 		else
 		{
@@ -23,4 +24,14 @@ public abstract class EnemyShooterBase : EnemyBase
 	}
 
 	protected abstract void Shoot();
+
+	private IEnumerator Wait()
+	{
+		print("A");
+		spriteRenderer.color = Color.white;
+		yield return new WaitForSeconds(0.4f);
+		Shoot();
+		timeToFire = fireRate;
+		spriteRenderer.color = originalColor;
+	}
 }

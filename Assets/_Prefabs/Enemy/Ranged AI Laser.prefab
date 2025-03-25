@@ -273,6 +273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+  currentHealth: 0
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &7466311341562706276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,11 +296,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   roomController: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
   enemyBulletPrefab: {fileID: 3114420573319742056, guid: 760ba4e31c65f1c4aaee77acd344cde5, type: 3}
   bulletDamage: 1
   bulletSpeed: 6
   firingPoint: {fileID: 5536260791600141640}
-  fireRate: 0.2
+  fireRate: 0.01
 --- !u!114 &4397785730160681854
 MonoBehaviour:
   m_ObjectHideFlags: 0

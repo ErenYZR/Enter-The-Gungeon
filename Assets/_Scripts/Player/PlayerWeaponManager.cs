@@ -52,6 +52,8 @@ public class PlayerWeaponManager : MonoBehaviour
         int nextWeaponIndex = (currentWeaponIndex + 1) % weapons.Length;
         EquipWeapon(nextWeaponIndex);
 		playerAimWeapon.fireTimer = weaponChangeCooldown;
+
+        FindObjectOfType<AmmoUI>().UpdateAmmoUI();
 	}
 
     public void Shoot()
@@ -82,6 +84,7 @@ public class PlayerWeaponManager : MonoBehaviour
 
 		reloadCoroutine = null;
 		print("Reload bitti!");
+        FindObjectOfType<AmmoUI>().UpdateAmmoUI();
 	}
 
     public void RefillCurrentWeaponAmmo()
@@ -97,6 +100,11 @@ public class PlayerWeaponManager : MonoBehaviour
     public bool GunIsFull()
     {
         return currentWeapon.GunIsFull();
+    }
+
+    public int GetCurrentWeaponIndex()
+    {
+        return currentWeaponIndex;
     }
 
 }

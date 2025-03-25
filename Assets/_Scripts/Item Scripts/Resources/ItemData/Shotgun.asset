@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14efe751f039c3547bf0fccb9707bfdf, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  ID: 5
+  ID: 3
   DisplayName: Shotgun
   Description: 
   Icon: {fileID: 21300000, guid: a7ffb2cad8ed84e438eac5e334025661, type: 3}

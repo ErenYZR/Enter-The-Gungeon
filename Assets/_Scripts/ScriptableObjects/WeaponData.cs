@@ -6,6 +6,7 @@ public class WeaponData : ScriptableObject
 	public string weaponName;
 	public Sprite inventoryIcon;
 	public Sprite inGameIcon;
+	public Sprite ammoIcon;
 	public int damage;
 	public float fireRate;
 	public float bulletSpeed;

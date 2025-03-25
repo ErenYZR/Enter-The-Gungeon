@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14efe751f039c3547bf0fccb9707bfdf, type: 3}
-  m_Name: Gunpowder
+  m_Name: Mechanica Part
   m_EditorClassIdentifier: 
-  ID: 4
-  DisplayName: Gunpowder
-  Description: 'Explosive dust.
-
-'
-  Icon: {fileID: 21300000, guid: cc50d6b2def39ed47aca82bebe963a83, type: 3}
+  ID: 2
+  DisplayName: Mechanical Part
+  Description: Mechanical parts for build gun.
+  Icon: {fileID: 21300000, guid: 60e41c17ffee71c4182728510c96811e, type: 3}
   MaxStackSize: 10
   itemType: 2

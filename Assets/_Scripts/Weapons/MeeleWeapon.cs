@@ -12,6 +12,7 @@ public class MeeleWeapon : Weapon
 	public float radius;
 
 	private HashSet<EnemyHealth> hitEnemies = new HashSet<EnemyHealth>(); // Hasar alan düþmanlar
+	private HashSet<EnemyBullet> hitEnemyBullets = new HashSet<EnemyBullet>();
 	private bool isAttacking = false;
 
 	private void Awake()
@@ -29,7 +30,6 @@ public class MeeleWeapon : Weapon
 	{
 		isAttacking = true;
 		animator.SetTrigger("Attack");
-		currentDurability--;
 
 		// Saldýrý süresi boyunca çarpýþma tespiti yap
 		StartCoroutine(AttackCoroutine());
@@ -63,6 +63,18 @@ public class MeeleWeapon : Weapon
 					hitEnemies.Add(enemyHealth);
 					enemyHealth.TakeDamage(meeleWeaponData.damage); // Hasarý anýnda ver
 					Debug.Log(enemyHealth.gameObject.name + " anýnda hasar aldý!");
+					currentDurability--;
+				}
+			}
+
+
+			if(collider.TryGetComponent<EnemyBullet>(out EnemyBullet enemyBullet))
+			{
+				if (!hitEnemyBullets.Contains(enemyBullet))
+				{
+					hitEnemyBullets.Add(enemyBullet);
+					Destroy(enemyBullet.gameObject);
+					currentDurability--;
 				}
 			}
 		}
@@ -74,4 +86,7 @@ public class MeeleWeapon : Weapon
 		hitEnemies.Clear(); // HashSet'i temizle
 		isAttacking = false;
 	}
+
+	public int GetCurrentDurability() => currentDurability;
+
 }
