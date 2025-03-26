@@ -47,6 +47,9 @@ public class JumpingEnemy : EnemyBase
 		yield return new WaitForSeconds(jumpCooldown); // Bekleme süresi
 
 		path.canMove = true; // AIPath tekrar çalýþsýn
+		path.maxSpeed = moveSpeed;
+
+		yield return new WaitForSeconds(1);
 		isJumping = false;
 	}
 
