@@ -4,8 +4,9 @@ using Pathfinding;
 public abstract class EnemyBase : MonoBehaviour
 {
 	protected AIPath path;
-	[SerializeField] private float moveSpeed;
+	[SerializeField] protected float moveSpeed;
 	[SerializeField] private float rotateSpeed;
+	protected Rigidbody2D rb;
 	protected Transform target;
 	[SerializeField] protected int contactDamage;
 	[SerializeField] private float distanceToShoot = 6f;
@@ -18,6 +19,7 @@ public abstract class EnemyBase : MonoBehaviour
 
 	protected virtual void Awake()
 	{
+		rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		originalColor = spriteRenderer.color;
 	}
@@ -31,13 +33,9 @@ public abstract class EnemyBase : MonoBehaviour
 
 	protected virtual void Update()
 	{
-		if(target == null)
-		{
-			target = GameObject.FindGameObjectWithTag("Player")?.transform;
-			if (target == null) return;
-		}
-			path.destination = target.position;
-			if (canShoot()) RotateTowardsTarget();
+		FindTarget();
+
+			
 		
 		if (path.remainingDistance >= distanceToStop)//düþmanýn oyuncuya yaklaþýnca durmasýný saðlayan kod
 		{
@@ -60,7 +58,7 @@ public abstract class EnemyBase : MonoBehaviour
 	}
 
 	protected abstract void Attack();
-	private void RotateTowardsTarget()
+	protected void RotateTowardsTarget()
 	{
 		Vector2 targetDirection = target.position - transform.position;
 		float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg - 90f;
@@ -68,6 +66,16 @@ public abstract class EnemyBase : MonoBehaviour
 		transform.localRotation = Quaternion.Slerp(transform.localRotation, q, rotateSpeed);
 	}
 
+	protected void FindTarget()
+	{
+		if (target == null)
+		{
+			target = GameObject.FindGameObjectWithTag("Player")?.transform;
+			if (target == null) return;
+		}
+		path.destination = target.position;
+
+	}
 
 	public bool canShoot()
 	{

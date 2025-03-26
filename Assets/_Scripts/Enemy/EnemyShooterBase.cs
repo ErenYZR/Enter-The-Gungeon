@@ -10,6 +10,12 @@ public abstract class EnemyShooterBase : EnemyBase
 	[SerializeField] protected float fireRate;
 	protected float timeToFire;
 
+
+	protected override void Update()
+	{
+		base.Update();
+		if (canShoot()) RotateTowardsTarget();
+	}
 	protected override void Attack()
 	{
 		if (timeToFire <= 0f && target != null && canShoot())

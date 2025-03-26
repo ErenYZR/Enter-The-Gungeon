@@ -510,7 +510,7 @@ MonoBehaviour:
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   enemyBulletPrefab: {fileID: 3114420573319742056, guid: 760ba4e31c65f1c4aaee77acd344cde5, type: 3}
   bulletDamage: 2
-  bulletSpeed: 18
+  bulletSpeed: 25
   firingPoint: {fileID: 260797775257506942}
   fireRate: 1.75
   laserLine: {fileID: 8630732896117914641}
