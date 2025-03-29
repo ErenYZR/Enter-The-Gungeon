@@ -11,8 +11,9 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] protected int currentAmmo;
 	[SerializeField] protected int currentClipAmmo;
-	[SerializeField] private bool isReloading;
+	[SerializeField] public bool isReloading;
 
+    private Coroutine reloadCoroutine;
 
 	private void Start()
 	{
@@ -41,7 +42,7 @@ public class Weapon : MonoBehaviour
     {
         if(!isReloading && currentAmmo > 0 && currentClipAmmo < weaponData.clipAmmo)
         {
-            StartCoroutine(ReloadCoroutine());
+            reloadCoroutine = StartCoroutine(ReloadCoroutine());
             print("Weapon.Reload çalýþýyor");
         }
     }
@@ -49,6 +50,21 @@ public class Weapon : MonoBehaviour
     private IEnumerator ReloadCoroutine()
     {
 		isReloading = true;
+        WeaponEvents.TriggerReloadStart(weaponData.reloadTime);
+        float elapsedTime = 0f;
+
+        while(elapsedTime < weaponData.reloadTime)
+        {
+            elapsedTime += Time.deltaTime;
+
+            if (!gameObject.activeSelf)
+            {
+                isReloading = false;
+                WeaponEvents.TriggerReloadCancel();
+                yield break;
+            }
+            yield return null;
+        }
 		yield return new WaitForSeconds(weaponData.reloadTime);
 
 		int ammoNeeded = weaponData.clipAmmo - currentClipAmmo;
@@ -63,6 +79,7 @@ public class Weapon : MonoBehaviour
 			currentAmmo = 0;
 		}
         isReloading = false;
+        WeaponEvents.TriggerReloadFinish();
     }
 
     public virtual void RefillCurrentWeaponAmmo()
@@ -84,5 +101,4 @@ public class Weapon : MonoBehaviour
     public int GetCurrentAmmo() => currentAmmo;
     public int GetCurrentClipAmmo() => currentClipAmmo;
     public bool IsReloading() => isReloading;
-    //public int GetCurrentWeaponIndex() => 
 }

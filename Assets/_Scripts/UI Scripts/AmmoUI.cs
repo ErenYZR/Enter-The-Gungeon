@@ -12,6 +12,23 @@ public class AmmoUI : MonoBehaviour
 	{
 		weaponManager = FindObjectOfType<PlayerWeaponManager>();
 		UpdateAmmoUI(); // Baþlangýçta UI'yi güncelle
+
+		if(weaponManager != null)
+		{
+			weaponManager.OnWeaponChange += UpdateAmmoUI;
+		}
+
+		WeaponEvents.OnReloadFinish += UpdateAmmoUI;
+	}
+
+	private void OnDestroy()
+	{
+		//Memory Leak önlemek için event'leri çýkart
+		if (weaponManager != null)
+		{
+			weaponManager.OnWeaponChange -= UpdateAmmoUI;
+		}
+		WeaponEvents.OnReloadFinish -= UpdateAmmoUI;
 	}
 
 	void Update()

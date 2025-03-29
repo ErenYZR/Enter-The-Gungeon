@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,13 +11,25 @@ public class PlayerWeaponManager : MonoBehaviour
     [SerializeField] private float weaponChangeCooldown;
     private Coroutine reloadCoroutine;
 
+    public Action OnWeaponChange;
+
     void Start()
     {
 		playerAimWeapon = GetComponent<PlayerAimWeapon>();
 		EquipWeapon(0);
     }
 
-    void Update()
+	private void OnEnable()
+	{
+		
+	}
+
+	private void OnDisable()
+	{
+		
+	}
+
+	void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -32,23 +45,27 @@ public class PlayerWeaponManager : MonoBehaviour
 
     void EquipWeapon(int index)
     {
+
         if(currentWeapon != null)
         {
             currentWeapon.gameObject.SetActive(false);
-            if(reloadCoroutine != null)
+            if(currentWeapon.IsReloading())//eðer silah deðiþirken reload atýlýyorsa reloadý iptal ediyor
             {
-                StopCoroutine(reloadCoroutine);
-                reloadCoroutine = null;
-            }
+                currentWeapon.StopAllCoroutines();
+				WeaponEvents.TriggerReloadCancel();
+			}
         }
         currentWeaponIndex = index;
         currentWeapon = weapons[currentWeaponIndex];
 		currentWeapon.gameObject.SetActive(true);
 		currentWeapon.spriteRenderer.sprite = currentWeapon.weaponData.inGameIcon;
+        OnWeaponChange?.Invoke();
 	}
 
     void SwapWeapon()
     {
+        currentWeapon.isReloading = false;//silah deðiþmeden önce reloadý durdurmanýn bir parçasý
+        WeaponEvents.TriggerReloadCancel();
         int nextWeaponIndex = (currentWeaponIndex + 1) % weapons.Length;
         EquipWeapon(nextWeaponIndex);
 		playerAimWeapon.fireTimer = weaponChangeCooldown;
@@ -73,6 +90,7 @@ public class PlayerWeaponManager : MonoBehaviour
 		if (currentWeapon != null && currentWeapon.CanReload() && reloadCoroutine == null)
 		{
 			reloadCoroutine = StartCoroutine(ReloadCoroutine());
+			WeaponEvents.TriggerReloadStart(currentWeapon.weaponData.reloadTime); // Event çaðrýlýyor
 		}
 	}
 
@@ -84,7 +102,8 @@ public class PlayerWeaponManager : MonoBehaviour
 
 		reloadCoroutine = null;
 		print("Reload bitti!");
-        FindObjectOfType<AmmoUI>().UpdateAmmoUI();
+		WeaponEvents.TriggerReloadFinish();
+		FindObjectOfType<AmmoUI>().UpdateAmmoUI();
 	}
 
     public void RefillCurrentWeaponAmmo()

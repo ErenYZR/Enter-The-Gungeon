@@ -46,7 +46,7 @@ public abstract class EnemyBase : MonoBehaviour
 			path.maxSpeed = 0;
 		}
 
-		Attack();
+		//Attack();
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)

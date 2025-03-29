@@ -9,19 +9,22 @@ public abstract class EnemyShooterBase : EnemyBase
 	[SerializeField] protected Transform firingPoint;
 	[SerializeField] protected float fireRate;
 	protected float timeToFire;
+	protected bool isFiring = false;
 
 
 	protected override void Update()
 	{
 		base.Update();
 		if (canShoot()) RotateTowardsTarget();
+		Attack();
+		
 	}
 	protected override void Attack()
 	{
-		if (timeToFire <= 0f && target != null && canShoot())
+		if (timeToFire <= 0f && target != null && canShoot() && !isFiring)
 		{
 			print("B");
-			//StartCoroutine(Wait());
+			StartCoroutine(Wait());
 		}
 		else
 		{
@@ -33,11 +36,13 @@ public abstract class EnemyShooterBase : EnemyBase
 
 	private IEnumerator Wait()
 	{
+		isFiring = true;
 		print("A");
 		spriteRenderer.color = Color.white;
 		yield return new WaitForSeconds(0.4f);
 		Shoot();
 		timeToFire = fireRate;
 		spriteRenderer.color = originalColor;
+		isFiring = false;
 	}
 }

@@ -22,15 +22,17 @@ public class SniperEnemy : EnemyShooterBase
 
 	protected override void Update()
 	{
-		base.Update();
+		//base.Update();
+		FindTarget();
 		UpdateLaser();
+		if (canShoot()) RotateTowardsTarget();
 		if (canShoot() && !isAiming) StartCoroutine(SniperRoutine());
 	}
 
 	private void UpdateLaser()
 	{
 		// Lazerin baþlangýç noktasý düþmanýn silah noktasý
-		Vector3 start = firingPoint.position + new Vector3(0,0,0);
+		Vector3 start = firingPoint.position;
 		Vector3 direction = transform.up; // Sað yön bakýþ yönü olur
 
 		// Lazerin nereye kadar gittiðini kontrol etmek için raycast kullan

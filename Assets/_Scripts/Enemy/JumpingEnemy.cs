@@ -30,7 +30,7 @@ public class JumpingEnemy : EnemyBase
 	private IEnumerator JumpAttack()
 	{
 		isJumping = true;
-		path.canMove = false; // AIPath hareketini kapat
+		path.enabled = false; // AIPath hareketini kapat
 
 		yield return new WaitForSeconds(0.2f); // Hafif bekleme süresi
 
@@ -46,7 +46,7 @@ public class JumpingEnemy : EnemyBase
 
 		yield return new WaitForSeconds(jumpCooldown); // Bekleme süresi
 
-		path.canMove = true; // AIPath tekrar çalýþsýn
+		path.enabled = true; // AIPath tekrar çalýþsýn
 		path.maxSpeed = moveSpeed;
 
 		yield return new WaitForSeconds(1);
