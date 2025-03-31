@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 mousePos;
     public Camera cam;
     private Vector3 lookingDir;
+    public bool canMove = true;
+
+    private List<StatusEffect> activeEffects = new List<StatusEffect>();
 
     [Header("DodgeRoll")]
 	[SerializeField] float originalDodgeRollSpeed = 5f;
@@ -49,7 +52,15 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
     {
-        switch (state)
+
+		for (int i = activeEffects.Count - 1; i >= 0; i--)//efektleri güncelle
+		{
+			activeEffects[i].UpdateEffect(Time.deltaTime);
+		}
+
+		if (!canMove) return; // Eðer hareket edemiyorsa kod buradan çýkacak
+
+		switch (state)
         {
             case State.Normal:			
 				GetInput(); //Input alma kýsmý				
@@ -64,8 +75,10 @@ public class PlayerMovement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-        //hareket kodu
-		rb.velocity = moveInput.normalized * movementSpeed;
+        if (canMove)
+        {
+		    rb.velocity = moveInput.normalized * movementSpeed;
+        }
 	}
 
     private void GetInput()//Input alma kýsmý
@@ -82,7 +95,27 @@ public class PlayerMovement : MonoBehaviour
 		rb.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 	}
 
-    private void CheckDodgeRoll()
+	public void AddStatusEffect(StatusEffect effect)
+	{
+		activeEffects.Add(effect);
+		effect.ApplyEffect();
+	}
+
+	public void RemoveStatusEffect(StatusEffect effect)
+	{
+		activeEffects.Remove(effect);
+	}
+	public void SetMovementState(bool state)
+	{
+		canMove = state;
+
+        if (!state)
+        {
+            rb.velocity = Vector2.zero;
+        }
+	}
+
+	private void CheckDodgeRoll()
     {
         if (Input.GetMouseButtonDown(1) && moveInput != new Vector2(0, 0) && canDodgeRoll)
         {
