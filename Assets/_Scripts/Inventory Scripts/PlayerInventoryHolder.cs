@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerInventoryHolder : InventoryHolder
 {
+	public static event Action OnInventoryUpdated;
+
+	[SerializeField] private InventorySystem inventorySystem;
+
 	public static UnityAction OnPlayerInventoryChanged;
 
 	public static UnityAction<InventorySystem, int> OnPlayerInventoryDisplayRequested;
@@ -38,4 +43,17 @@ public class PlayerInventoryHolder : InventoryHolder
 
         return false;
     }
+
+	public bool HasItem(InventoryItemData data, int amount)
+	{
+		OnPlayerInventoryChanged?.Invoke();
+		return primaryInventorySystem.HasItem(data, amount);
+	}
+
+	public void RemoveItem(InventoryItemData data, int amount)
+	{
+		OnPlayerInventoryChanged?.Invoke();
+		primaryInventorySystem.RemoveItem(data, amount);
+	}
+
 }

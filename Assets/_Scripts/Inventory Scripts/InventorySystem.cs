@@ -65,4 +65,38 @@ public class InventorySystem
 		freeSlot = InventorySlots.FirstOrDefault(i => i.ItemData == null);
 		return freeSlot == null ? false : true;
 	}
+
+	public bool HasItem(InventoryItemData data, int amount)
+	{
+		foreach (var slot in inventorySlots)
+		{
+			if (slot.ItemData == data && slot.StackSize >= amount)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void RemoveItem(InventoryItemData data, int amount)
+	{
+		foreach (var slot in inventorySlots)
+		{
+			if (slot.ItemData == data)
+			{
+				if (slot.StackSize > amount)
+				{
+					slot.RemoveFromStack(amount);
+					return;
+				}
+				else
+				{
+					amount -= slot.StackSize;
+					slot.ClearSlot();
+					if (amount <= 0) return;
+				}
+			}
+		}
+	}
+
 }
