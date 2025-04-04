@@ -26,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4784507875484863110}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3378875, y: -1.1427056, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3483157873188126101}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &4214223867761218100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: fcb2cd73f1d5ab24683b734fbb641a68, type: 2}
   firePoint: {fileID: 0}
   bulletPrefab: {fileID: 3114420573319742056, guid: 3b8d371ddbf47a74098a0a5cb841f514, type: 3}
+  spriteRenderer: {fileID: 0}
   currentAmmo: 20
   currentClipAmmo: 0
   isReloading: 0

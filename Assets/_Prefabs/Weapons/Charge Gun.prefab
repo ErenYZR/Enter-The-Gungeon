@@ -28,14 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4784507875484863110}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3378875, y: -1.1427056, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3483157873188126101}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &4214223867761218100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   currentClipAmmo: 0
   isReloading: 0
   chargeWeaponData: {fileID: 11400000, guid: 2899089284b047843a9bcb60b77ec687, type: 2}
+  animator: {fileID: 0}
 --- !u!95 &7797944932297712666
 Animator:
   serializedVersion: 5
