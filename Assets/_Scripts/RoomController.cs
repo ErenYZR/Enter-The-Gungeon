@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
+	[SerializeField] private Collider2D roomCollider;
 	[SerializeField] private GameObject[] doors; // Odadaki kapýlar
 	[SerializeField] private EnemySpawner[] enemySpawners; // Spawner noktalarý
 	private int enemiesAlive = 0;
@@ -12,7 +13,33 @@ public class RoomController : MonoBehaviour
 
 	private void Start()
 	{
+		DetectObjects();
 		OpenDoors();
+	}
+
+	private void DetectObjects()
+	{
+		List<GameObject> detectedDoors = new List<GameObject>();
+		List<EnemySpawner> detectedSpawners = new List<EnemySpawner>();
+
+		// Odanýn collider sýnýrlarý içinde kalan nesneleri bul
+		Collider2D[] objectsInRoom = Physics2D.OverlapBoxAll(roomCollider.bounds.center, roomCollider.bounds.size, 0);
+
+		foreach (Collider2D obj in objectsInRoom)
+		{
+			if (obj.CompareTag("Door")) // Kapýlarý algýla
+			{
+				detectedDoors.Add(obj.gameObject);
+			}
+			else if (obj.TryGetComponent(out EnemySpawner spawner)) // Spawnerlarý algýla
+			{
+				detectedSpawners.Add(spawner);
+			}
+		}
+
+		// Algýlanan nesneleri diziye çevir ve ata
+		doors = detectedDoors.ToArray();
+		enemySpawners = detectedSpawners.ToArray();
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
