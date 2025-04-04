@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ShotgunRecipe
   m_EditorClassIdentifier: 
   recipeName: Shotgun
-  OutputItem: {fileID: 11400000, guid: d3263e452b3c2d8458653ecd7e35a233, type: 2}
+  OutputItem: {fileID: 11400000, guid: 52f704f7c2af5ec41a49c0916deb3153, type: 2}
   OutputAmount: 1
   Ingredients:
   - Item: {fileID: 11400000, guid: 5263624adc3ec914596c513982146fc1, type: 2}
-    Amount: 2
+    Amount: 3
   - Item: {fileID: 11400000, guid: 965f2e4fb19fcb24187c56d2a61ea16f, type: 2}
     Amount: 2

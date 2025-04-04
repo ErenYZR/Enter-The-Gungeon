@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="NewWeapon", menuName ="Weapons/Weapon Data")]
-public class WeaponData : ScriptableObject
+public class WeaponData : InventoryItemData
 {
 	public string weaponName;
 	public Sprite inventoryIcon;
@@ -14,4 +14,5 @@ public class WeaponData : ScriptableObject
 	public int clipAmmo;
 	public float reloadTime;
 	public float spreadAngle;
+	public GameObject weaponPrefab;
 }

@@ -11,7 +11,6 @@ public class CraftingManager : MonoBehaviour
 	{
 		Instance = this;
 	}
-
 	public List<CraftingRecipe> GetAvailableRecipes()
 	{
 		return recipes;
@@ -41,11 +40,49 @@ public class CraftingManager : MonoBehaviour
 		foreach (var ingredient in recipe.Ingredients)
 		{
 			playerInventory.RemoveItem(ingredient.Item, ingredient.Amount);
-
 		}
+
+
+		if (recipe.OutputItem is WeaponData weaponData)//silah üretildiyse silah envanterine yolla
+		{
+			// Silahý doðrudan oyuncuya ver
+			PlayerWeaponManager weaponManager = FindObjectOfType<PlayerWeaponManager>();
+			if (weaponManager != null)
+			{
+				weaponManager.AddNewWeapon(weaponData);
+				Debug.Log($"{recipe.recipeName} üretildi ve silah olarak eklendi!");
+			}
+			else
+			{
+				Debug.LogWarning("PlayerWeaponManager bulunamadý!");
+			}
+		}
+		else
+		{
+			// Normal eþya ise envantere ekle
+			bool success = playerInventory.AddToInventory(recipe.OutputItem, recipe.OutputAmount);
+
+			if (success)
+				Debug.Log($"{recipe.recipeName} üretildi!");
+			else
+				Debug.LogWarning("Üretilen eþya envantere eklenemedi!");
+		}
+
+
+
+		/*bool success = playerInventory.AddToInventory(recipe.OutputItem, recipe.OutputAmount);
+
+		if (success)
+		{
+			Debug.Log($"{recipe.recipeName} üretildi!");
+		}
+		else
+		{
+			Debug.LogWarning("Üretilen eþya envantere eklenemedi!");
+		}*/
 
 		// Üretilen eþyayý oyuncunun envanterine ekle
 		//playerInventory.AddItem(recipe.OutputItem, recipe.OutputAmount);
-		Debug.Log($"{recipe.recipeName} üretildi!");		
+		//Debug.Log($"{recipe.recipeName} üretildi!");		
 	}
 }

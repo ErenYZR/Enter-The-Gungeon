@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerWeaponManager : MonoBehaviour
@@ -73,7 +74,27 @@ public class PlayerWeaponManager : MonoBehaviour
         FindObjectOfType<AmmoUI>().UpdateAmmoUI();
 	}
 
-    public void Shoot()
+	public void AddNewWeapon(WeaponData weaponData)
+	{
+		// Silah prefabýný oluþtur (weaponData içinde prefab referansý varsa)
+		GameObject weaponGO = Instantiate(weaponData.weaponPrefab, transform);
+		Weapon newWeapon = weaponGO.GetComponent<Weapon>();
+		newWeapon.weaponData = weaponData;
+
+		// Sprite Renderer ata (eðer prefabta atanmadýysa)
+		newWeapon.spriteRenderer = weaponGO.GetComponent<SpriteRenderer>();
+
+		// Silahý listeye ekle
+		List<Weapon> tempList = new List<Weapon>(weapons);
+		tempList.Add(newWeapon);
+		weapons = tempList.ToArray();
+
+		// Yeni silahý direkt kuþanmak istersen:
+		EquipWeapon(weapons.Length - 1);
+	}
+
+
+	public void Shoot()
     {
         if(currentWeapon != null && playerAimWeapon.fireTimer < 0 && !currentWeapon.IsReloading() && currentWeapon.GetCurrentClipAmmo() > 0)
         {

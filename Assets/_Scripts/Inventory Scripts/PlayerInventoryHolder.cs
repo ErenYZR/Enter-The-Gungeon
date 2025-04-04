@@ -38,6 +38,7 @@ public class PlayerInventoryHolder : InventoryHolder
     {
         if (primaryInventorySystem.AddToInventory(data, amount))
         {
+			OnPlayerInventoryChanged?.Invoke();
             return true;
         }
 
@@ -52,8 +53,8 @@ public class PlayerInventoryHolder : InventoryHolder
 
 	public void RemoveItem(InventoryItemData data, int amount)
 	{
-		OnPlayerInventoryChanged?.Invoke();
 		primaryInventorySystem.RemoveItem(data, amount);
+		OnPlayerInventoryChanged?.Invoke();
 	}
 
 }
