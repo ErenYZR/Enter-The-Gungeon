@@ -322,9 +322,13 @@ MonoBehaviour:
   - itemPrefab: {fileID: 1933401118885396185, guid: a09b08b53ac2ddc42a4eb77b11a6314b, type: 3}
     dropChance: 0.1
   - itemPrefab: {fileID: 5292812291909969819, guid: a386264b0d4531749a20366c2f8a8492, type: 3}
-    dropChance: 0.1
+    dropChance: 0.404
   - itemPrefab: {fileID: 9221813153919744272, guid: a58066feb8bd08e478fb2da2d6ca9891, type: 3}
     dropChance: 0.1
+  - itemPrefab: {fileID: 9221813153919744272, guid: a58066feb8bd08e478fb2da2d6ca9891, type: 3}
+    dropChance: 0.462
+  - itemPrefab: {fileID: 5394039521822104492, guid: d49db9e9cf4177d4f8a5223120a5436e, type: 3}
+    dropChance: 0.462
 --- !u!1 &6696530167616214781
 GameObject:
   m_ObjectHideFlags: 0

@@ -357,6 +357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  currentHealth: 0
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8417016148313646519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +380,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   roomController: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
   enemyBulletPrefab: {fileID: 3114420573319742056, guid: f43229c0a47e7e8488379c54f54bb710, type: 3}
   bulletDamage: 1
   bulletSpeed: 4
@@ -401,6 +405,10 @@ MonoBehaviour:
   - itemPrefab: {fileID: 1933401118885396185, guid: a09b08b53ac2ddc42a4eb77b11a6314b, type: 3}
     dropChance: 0.1
   - itemPrefab: {fileID: 5292812291909969819, guid: a386264b0d4531749a20366c2f8a8492, type: 3}
-    dropChance: 0.1
+    dropChance: 0.409
   - itemPrefab: {fileID: 9221813153919744272, guid: a58066feb8bd08e478fb2da2d6ca9891, type: 3}
     dropChance: 0.1
+  - itemPrefab: {fileID: 9221813153919744272, guid: a58066feb8bd08e478fb2da2d6ca9891, type: 3}
+    dropChance: 0.507
+  - itemPrefab: {fileID: 5394039521822104492, guid: d49db9e9cf4177d4f8a5223120a5436e, type: 3}
+    dropChance: 0.28
