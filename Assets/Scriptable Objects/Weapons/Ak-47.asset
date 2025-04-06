@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed886d6a192ad6a46a7eaf650afcac94, type: 3}
+  m_Name: Ak-47
+  m_EditorClassIdentifier: 
+  ID: -1
+  DisplayName: 
+  Description: 
+  Icon: {fileID: 0}
+  MaxStackSize: 0
+  itemType: 0
+  weaponName: Ak-47
+  inventoryIcon: {fileID: 21300000, guid: fb625a2ff2b59084bbea381c0f74d6a0, type: 3}
+  inGameIcon: {fileID: 21300000, guid: fb625a2ff2b59084bbea381c0f74d6a0, type: 3}
+  ammoIcon: {fileID: 21300000, guid: 627cb8ac49455d44a99ff4d53dbf1ded, type: 3}
+  damage: 2
+  fireRate: 0.2
+  bulletSpeed: 5
+  maxAmmo: 90
+  clipAmmo: 30
+  reloadTime: 2
+  spreadAngle: 5
+  weaponPrefab: {fileID: 4482351219786844079, guid: 4c44697a05ac26e4a82c98620806b973, type: 3}
